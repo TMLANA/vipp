@@ -410,13 +410,13 @@ end
 function UpdateSource(msg,edit)
 if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█    @URRRP     |') end
 if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███  @URRRP       |') end
-download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/inc/Run.lua','./inc/Run.lua')
+download_file('https://raw.githubusercontent.com/bandarr009/vipp/President/inc/Run.lua?token=ATQ4YMWB4BUOOGDIL4A4AFDARGTIA','./inc/Run.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████  @URRRP     |') end
-download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/inc/locks.lua','./inc/locks.lua')
+download_file('https://raw.githubusercontent.com/bandarr009/vipp/President/inc/locks.lua?token=ATQ4YMWCLNJWPICP6WVPGZDARGUVE','./inc/locks.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████  @URRRP   |') end
-download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/inc/Script.lua','./inc/Script.lua')
+download_file('https://raw.githubusercontent.com/bandarr009/vipp/President/inc/Script.lua?token=ATQ4YMRPZ3VAFYL27T3DYYTARGTOO','./inc/Script.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████ @URRRP  |') end
-download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/inc/functions.lua','./inc/functions.lua')
+download_file('https://raw.githubusercontent.com/bandarr009/vipp/President/inc/functions.lua?token=ATQ4YMVW2MSLXUGUCQLNNILARGUSW','./inc/functions.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n تم تحديث السورس الى اصدار *v'..redis:get(ws..":VERSION")..'*\n تم اعاده تشغيل السورس بنجاح\n -') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")

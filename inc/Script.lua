@@ -199,12 +199,12 @@ GetFullChat(msg.chat_id_,function(arg,data)
 local GroupName = (redis:get(ws..'group:name'..arg.ChatID) or '')
 redis:set(ws..'LinkGroup'..arg.ChatID,(data.invite_Link_ or ""))
 sendMsg(arg.ChatID,arg.MsgID,
-"ـ  •⊱ { مـعـلومـات الـمـجـموعـه } ⊰•\n\n"
-.."*¦* عدد الاعـضـاء •⊱ { *"..data.member_count_.."* } ⊰•"
-.."\n** عدد المحظـوريـن •⊱ { *"..data.kicked_count_.."* } ⊰•"
-.."\n** عدد الادمـنـيـه •⊱ { *"..data.administrator_count_.."* } ⊰•"
-.."\n** الايــدي •⊱ { `"..arg.ChatID.."` } ⊰•"
-.."\n\nـ •⊱ {  ["..FlterName(GroupName).."]("..(data.invite_Link_ or "")..")  } ⊰•\n"
+"ـ  مـعـلومـات الـمـجـموعـه\n\n"
+.."*•* عدد الاعـضـاء  *"..data.member_count_.."* "
+.."\n*•* عدد المحظـوريـن  *"..data.kicked_count_.."* "
+.."\n*•* عدد الادمـنـيـه *"..data.administrator_count_.."* "
+.."\n*•* الايــدي `"..arg.ChatID.."` "
+.."\n\nـ   ["..FlterName(GroupName).."]("..(data.invite_Link_ or "")..") \n"
 )
 end,{ChatID=msg.chat_id_,MsgID=msg.id_}) 
 return false
