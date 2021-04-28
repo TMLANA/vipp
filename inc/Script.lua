@@ -15,7 +15,7 @@ return modadd(msg)
 end
 
 if MsgText[1] == "تعطيل" and not MsgText[2] then
-if not msg.SudoUser then return ' أنـت لـسـت الـمـطـور 'end
+if not msg.SudoUser then return ' انت لست المطور 'end
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg 
 local NameUser   = Hyper_Link_Name(data)
@@ -99,15 +99,15 @@ GetUserID(UserID,function(arg,data)
 USERNAME = ResolveUserName(data)
 USERNAME = USERNAME:gsub([[\_]],"_")
 USERCAR = utf8.len(USERNAME) 
-SendMention(arg.ChatID,arg.UserID,arg.MsgID,"🧟‍♂• اضـغط على الايدي ليتم النسـخ\n\n "..USERNAME.." ~⪼ { "..arg.UserID.." }",37,USERCAR)
+SendMention(arg.ChatID,arg.UserID,arg.MsgID,"• اضـغط على الايدي ليتم النسـخ\n\n "..USERNAME.." ➯  { "..arg.UserID.." }",37,USERCAR)
 end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = Flter_Markdown(arg.UserName)
-sendMsg(arg.ChatID,arg.MsgID,"• اضـغط على الايدي ليتم النسـخ\n\n "..UserName.." ~⪼ ( `"..UserID.."` )")
+sendMsg(arg.ChatID,arg.MsgID,"• اضـغط على الايدي ليتم النسـخ\n\n "..UserName.." ➯  ( `"..UserID.."` )")
 end,{ChatID=msg.chat_id_,MsgID=msg.id_,UserName=MsgText[2]})
 end 
 return false
@@ -258,7 +258,7 @@ if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"• عذر
 local UserID = data.sender_user_id_
 if UserID == our_id then  
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكن تقييد البوت  \n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then  
+elseif UserID == 1605449126 then  
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد المطور الاساسي\n") 
@@ -293,13 +293,13 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then  -- By Username 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.ID == "ChannelChatInfo" then return sendMsg(arg.ChatID,arg.MsgID,"• عذرا هذا معرف قناة وليس حساب \n") end
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد البوت\n") 
-elseif  UserID == 656329268 or UserID == 953717439 or UserID == 1635597460  then 
+elseif  UserID == 1605449126  then 
 return sendMsg(arg.ChatID,arg.MsgID,"•  لا يمكنك تقييد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تقييد المطور الاساسي\n") 
@@ -336,7 +336,7 @@ elseif MsgText[2] and MsgText[2]:match('^%d+$') then  -- By UserID
 UserID =  MsgText[2] 
 if UserID == our_id then   
 return sendMsg(msg.chat_id_,msg.id_,"• لا يمكنك تقييد البوت\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(msg.chat_id_,msg.id_,"• لا يمكنك تقييد مطور السورس\n") 
 elseif UserID == tostring(SUDO_ID) then 
 return sendMsg(msg.chat_id_,msg.id_,"• لا يمكنك تقييد المطور الاساسي\n") 
@@ -390,7 +390,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then  -- BY Username
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.ID == "ChannelChatInfo" then return sendMsg(arg.ChatID,arg.MsgID,"• عذرا هذا معرف قناة وليس حساب \n") end
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -447,7 +447,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then  --BY USERNAME
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -491,7 +491,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 UserName = Flter_Markdown(arg.UserName)
@@ -540,7 +540,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then  --BY USERNAME
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -584,7 +584,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 UserName = Flter_Markdown(arg.UserName)
@@ -633,7 +633,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then  --BY USERNAME
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -677,7 +677,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 UserName = Flter_Markdown(arg.UserName)
@@ -726,7 +726,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then  --BY USERNAME
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -770,7 +770,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 UserName = Flter_Markdown(arg.UserName)
@@ -819,7 +819,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then  --BY USERNAME
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -863,7 +863,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 UserName = Flter_Markdown(arg.UserName)
@@ -913,7 +913,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then  --BY USERNAME
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -958,7 +958,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 UserName = Flter_Markdown(arg.UserName)
@@ -998,7 +998,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -1044,7 +1044,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = Flter_Markdown(arg.UserName)
 NameUser = Hyper_Link_Name(data)
@@ -1086,7 +1086,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 NameUser = Hyper_Link_Name(data)
 local UserID = data.id_
@@ -1134,7 +1134,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 UserName = Flter_Markdown(arg.UserName)
@@ -1175,7 +1175,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
@@ -1221,7 +1221,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
 NameUser = Hyper_Link_Name(data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = Flter_Markdown(arg.UserName)
 if not redis:sismember(ws..'admins:'..arg.ChatID,UserID) then 
@@ -1257,7 +1257,7 @@ end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 local USERNAME = arg.user
 NameUser = Hyper_Link_Name(data)
@@ -1283,7 +1283,7 @@ USERCAR = utf8.len(USERNAME)
 local namei = data.first_name_..' '..(data.last_name_ or "")
 if data.username_ then useri = '@'..data.username_ else useri = " لا يوجد " end
 SendMention(arg.ChatID,arg.UserID,arg.MsgID,'• الاسم ⇠ '..namei..'\n'
-..'• الايدي ⇠ {'..arg.UserID..'} \n'
+..'• الايدي ⇠ '..arg.UserID..' \n'
 ..'• المعرف ⇠ '..useri..'\n'
 ..'• الرتبه ⇠ '..Getrtba(arg.UserID,arg.ChatID)..'\n'
 ..'• نوع الكشف ⇠ بالرد\n',13,utf8.len(namei))
@@ -1291,10 +1291,10 @@ end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = Flter_Markdown(arg.UserName)
-sendMsg(arg.ChatID,arg.MsgID,'*•* الاسم ⇠ '..FlterName(data.title_,30)..'\n'..'• الايدي ⇠ {`'..UserID..'`} \n'..'• المعرف ⇠ '..UserName..'\n• الرتبه ⇠ '..Getrtba(UserID,arg.ChatID)..'\n*•* نوع الكشف ⇠ بالمعرف\n'..'')
+sendMsg(arg.ChatID,arg.MsgID,'*•* الاسم ⇠ '..FlterName(data.title_,30)..'\n'..'• الايدي ⇠ `'..UserID..'` \n'..'• المعرف ⇠ '..UserName..'\n• الرتبه ⇠ '..Getrtba(UserID,arg.ChatID)..'\n*•* نوع الكشف ⇠ بالمعرف\n'..'')
 end,{ChatID=msg.chat_id_,MsgID=msg.id_,UserName=MsgText[2]})
 elseif MsgText[2] and MsgText[2]:match('^%d+$') then
 GetUserID(MsgText[2],action_by_id,{msg=msg,cmd="whois"}) 
@@ -1323,7 +1323,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"•  لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"•  لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 if UserID == our_id then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تنفيذ الامر بالرد ع رسالة البوت \n") end
 if msg.SudoBase then redis:srem(ws..'gban_users',UserID)  end 
@@ -1351,7 +1351,7 @@ if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"• عذر
 local UserID = data.sender_user_id_
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد البوت\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد المطور الاساسي\n") 
@@ -1384,13 +1384,13 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = arg.UserName
 NameUser = Hyper_Link_Name(data)
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد البوت\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك طرد المطور الاساسي\n") 
@@ -1437,7 +1437,7 @@ if UserID == our_id then
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر المطور الاساسي\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر المطور\n") 
@@ -1478,7 +1478,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 
@@ -1486,7 +1486,7 @@ if UserID == our_id then
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر المطور الاساسي\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر المطور\n") 
@@ -1551,7 +1551,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 if data.type_.ID == "ChannelChatInfo" then return sendMsg(arg.ChatID,arg.MsgID,"• عذرا هذا معرف قناة وليس حساب \n") end
@@ -1589,7 +1589,7 @@ end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 if UserID == our_id then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكن تنفيذ الامر للبوت\n") end
 NameUser = Hyper_Link_Name(data)
@@ -1641,7 +1641,7 @@ end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.id_ == our_id then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تنفيذ الامر مع البوت \n") end 
 local UserID = data.id_
 UserName = arg.UserName
@@ -1671,7 +1671,7 @@ if UserID == our_id then
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المطور الاساسي\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المطور\n") 
@@ -1702,7 +1702,7 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = arg.UserName
 NameUser = Hyper_Link_Name(data)
@@ -1710,7 +1710,7 @@ if UserID == our_id then
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المطور الاساسي\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك كتم المطور\n") 
@@ -1760,7 +1760,7 @@ end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = arg.UserName
 NameUser = Hyper_Link_Name(data)
@@ -2082,11 +2082,11 @@ end
 end 
 if tonumber(DelMsg) == data.total_count_ then
 tdcli_function({ID="DeleteMessages",chat_id_ = msg.chat_id_,message_ids_=All_Msgs},function() 
-sendMsg(msg.chat_id_,msg.id_,"* مسح ~⪼ { *"..MsgText[2].."* } من الرسائل  \n")
+sendMsg(msg.chat_id_,msg.id_,"* مسح ➯  { *"..MsgText[2].."* } من الرسائل  \n")
 end,nil)
 else
 tdcli_function({ID="DeleteMessages",chat_id_=msg.chat_id_,message_ids_=All_Msgs},function() 
-sendMsg(msg.chat_id_,msg.id_,"تـم مسح ~⪼ { *"..MsgText[2].."* } من الرسائل  \n")
+sendMsg(msg.chat_id_,msg.id_,"تـم مسح ➯  { *"..MsgText[2].."* } من الرسائل  \n")
 end,nil)
 end
 end)
@@ -2729,7 +2729,7 @@ end
 
 if MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 if redis:sismember(ws..':MONSHA_Group:'..arg.ChatID,UserID) then 
@@ -2771,7 +2771,7 @@ end
 
 if MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = Flter_Markdown(arg.UserName)
 NameUser = Hyper_Link_Name(data)
@@ -2831,7 +2831,7 @@ NameUser = Hyper_Link_Name(data)
 msg = arg.msg
 UserID = msg.UserID
 if UserID == our_id then return sendMsg(msg.chat_id_,msg.id_,"• لا يمكنك تنفيذ الامر مع البوت\n") end
-if UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then return sendMsg(msg.chat_id_,msg.id_,"• لا يمكنك تنفيذ الامر ضد مطور السورس \n") end
+if UserID == 1605449126 then return sendMsg(msg.chat_id_,msg.id_,"• لا يمكنك تنفيذ الامر ضد مطور السورس \n") end
 
 if UserID == SUDO_ID then 
 rinkuser = 1
@@ -2925,12 +2925,12 @@ end
 
 if MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 if UserID == our_id then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك تنفيذ الامر مع البوت\n") end
 
 msg = arg.msg
-if UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then return sendMsg(msg.chat_id_,msg.id_,"• لا يمكنك تنفيذ الامر ضد مطور السورس \n") end
+if UserID == 1605449126 then return sendMsg(msg.chat_id_,msg.id_,"• لا يمكنك تنفيذ الامر ضد مطور السورس \n") end
 NameUser = Hyper_Link_Name(data)
 
 if UserID == SUDO_ID then 
@@ -3166,7 +3166,7 @@ end
 
 if MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 ReUsername = arg.UserName
 NameUser = Hyper_Link_Name(data)
@@ -3206,7 +3206,7 @@ end
 --================================================
 if MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 NameUser = Hyper_Link_Name(data)
 if not redis:sismember(ws..':SUDO_BOT:',UserID) then 
@@ -3313,11 +3313,11 @@ end
 
 if MsgText[1] == "ضع شرط التفعيل" and MsgText[2] and MsgText[2]:match('^%d+$') then 
 redis:set(ws..':addnumberusers',MsgText[2]) 
-return '💱 تم وضـع شـرط التفعيل البوت اذا كانت المـجمـوعهہ‏‏ اكثر مـن *【'..MsgText[2]..'】* عضـو  •\n' 
+return '💱 تم وضـع شـرط التفعيل البوت اذا كانت المـجمـوعهہ‏‏ اكثر مـن *【'..MsgText[2]..'】* عضو  •\n' 
 end
 
 if MsgText[1] == "شرط التفعيل" then 
-return'• شـرط التفعيل البوت اذا كانت المـجمـوعهہ‏‏ اكثر مـن *【'..redis:get(ws..':addnumberusers')..'】* عضـو  •\n' 
+return'• شـرط التفعيل البوت اذا كانت المـجمـوعهہ‏‏ اكثر مـن *【'..redis:get(ws..':addnumberusers')..'】* عضو  •\n' 
 end 
 end
 
@@ -3447,7 +3447,7 @@ if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"• عذر
 local UserID = data.sender_user_id_
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر البوت\n") 
-elseif  UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif  UserID == 1605449126 then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر مطور السورس\n")
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر المطور الاساسي\n")
@@ -3470,14 +3470,14 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 end
 if MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = arg.UserName
 NameUser = Hyper_Link_Name(data)
 
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر البوت\n") 
-elseif  UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif  UserID == 1605449126 then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر مطور السورس\n")
 elseif UserID == SUDO_ID then 
 return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنك حظر المطور الاساسي\n")
@@ -3525,7 +3525,7 @@ GetUserID(MsgText[2],action_by_id,{msg=msg,cmd="unbandall"})
 end
 if MsgText[2] and MsgText[2]:match('@[%a%d_]+') then 
 GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 local UserID = data.id_
 UserName = arg.UserName
 NameUser = Hyper_Link_Name(data)
@@ -3596,7 +3596,7 @@ end
 
 if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
 if not msg.SudoBase then return "• هذا الامر يخص {المطور الاساسي} فقط  \n" end
-local GetVerison = https.request('https://raw.githubusercontent.com/bandarr009/vipp/main/GetVersion.txt') or "0"
+local GetVerison = https.request('https://github.com/bandarr009/vipp/GetVersion.txt') or "0"
 GetVerison = GetVerison:gsub("\n",""):gsub(" ","")
 if GetVerison > version then
 UpdateSourceStart = true
@@ -4448,9 +4448,9 @@ local Check_File_is_Found = io.open("plugins/"..FileName,"r")
 if Check_File_is_Found then
 io.close(Check_File_is_Found)
 os.execute("rm -fr plugins/"..FileName)
-TText = " الملف ~⪼ ["..FileName.."] \n تم حذفه بنجاح  \n"
+TText = " الملف ➯  ["..FileName.."] \n تم حذفه بنجاح  \n"
 else
-TText = " الملف ~⪼ ["..FileName.."] \n بالفعل محذوف  \n"
+TText = " الملف ➯  ["..FileName.."] \n بالفعل محذوف  \n"
 end
 Start_Bot()
 return TText
@@ -5234,7 +5234,7 @@ end
 if msg.SudoBase and redis:get(ws..":Witting_MoveBot:"..msg.chat_id_..msg.sender_user_id_) then
 if msg.text:match("^@[%a%d_]+$") then
 GetUserName(msg.text,function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضـو بهہ‌‏ذا المـعرف \n") end 
+if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
 if data.type_.user_ and data.type_.user_.type_.ID == "UserTypeBot" then return sendMsg(arg.ChatID,arg.MsgID,"• لا يمكنني رفع حساب بوت \n") end 
 local UserID = data.id_
 if UserID == our_id then 
@@ -6736,7 +6736,7 @@ GetUserID(msg.sender_user_id_,function(arg,data)
 if data.username_ then USERNAME = '@'..data.username_ else USERNAME = FlterName(data) end
 USERNAME = USERNAME:gsub([[\_]],"_")
 USERCAR = utf8.len(USERNAME) 
-SendMention(msg.chat_id_,data.id_,msg.id_," اضـغط على الايدي ليتم النسـخ\n\n "..USERNAME.." ~⪼ ( "..data.id_.." )",37,USERCAR)  
+SendMention(msg.chat_id_,data.id_,msg.id_," اضـغط على الايدي ليتم النسـخ\n\n "..USERNAME.." ➯  ( "..data.id_.." )",37,USERCAR)  
 return false
 end)
 elseif Text=="اريد رابط الحذف" or Text=="اريد رابط حذف" or Text=="رابط حذف" or Text=="رابط الحذف" then

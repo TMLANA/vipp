@@ -410,13 +410,13 @@ end
 function UpdateSource(msg,edit)
 if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█    @URRRP     |') end
 if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███  @URRRP       |') end
-download_file('https://raw.githubusercontent.com/bandarr009/vipp/President/inc/Run.lua?token=ATQ4YMWB4BUOOGDIL4A4AFDARGTIA','./inc/Run.lua')
+download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/inc/Run.lua','./inc/Run.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████  @URRRP     |') end
-download_file('https://raw.githubusercontent.com/bandarr009/vipp/President/inc/locks.lua?token=ATQ4YMWCLNJWPICP6WVPGZDARGUVE','./inc/locks.lua')
+download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/inc/locks.lua','./inc/locks.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████  @URRRP   |') end
-download_file('https://raw.githubusercontent.com/bandarr009/vipp/President/inc/Script.lua?token=ATQ4YMRPZ3VAFYL27T3DYYTARGTOO','./inc/Script.lua')
+download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/inc/Script.lua','./inc/Script.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████ @URRRP  |') end
-download_file('https://raw.githubusercontent.com/bandarr009/vipp/President/inc/functions.lua?token=ATQ4YMVW2MSLXUGUCQLNNILARGUSW','./inc/functions.lua')
+download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/inc/functions.lua','./inc/functions.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n تم تحديث السورس الى اصدار *v'..redis:get(ws..":VERSION")..'*\n تم اعاده تشغيل السورس بنجاح\n -') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")
@@ -786,7 +786,7 @@ end
 function Getrtba(UserID,ChatID)
 if UserID == our_id then 
 var = 'هذا البوت' 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 var = 'مطور السورس'
 elseif  UserID == SUDO_ID then 
 var = redis:get(ws..":RtbaNew1:"..ChatID) or 'مطور اساسي' 
@@ -1686,7 +1686,7 @@ if UserID == our_id then
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد البوت\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد المطور الاساسي\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد مطور السورس\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد المطور\n") 
@@ -1919,7 +1919,7 @@ end
 if cmd == "ban" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر البوت\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر المطور الاساسي\n") 
@@ -1948,7 +1948,7 @@ end
 if cmd == "kick" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد البوت\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد المطور الاساسي\n") 
@@ -1991,7 +1991,7 @@ end
 if cmd == "ktm" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك كتم البوت\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك كتم مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك كتم المطور الاساسي\n") 
@@ -2050,7 +2050,7 @@ end
 if cmd == "bandall" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر البوت\n") 
-elseif UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then 
+elseif UserID == 1605449126 then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر مطور السورس\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر المطور الاساسي\n")
@@ -2097,7 +2097,7 @@ end
 if cmd == "DwnAll" then ----------- تنزيل الكل
 print(UserID..":"..SUDO_ID)
 if UserID == our_id then return sendMsg(ChatID,MsgID,"✦¹ لآ يمكنك تنفيذ الامر مع البوت\n") end
-if UserID == 656329268 or UserID == 953717439 or UserID == 1635597460 then return sendMsg(ChatID,MsgID,"✦¹ لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
+if UserID == 1605449126 then return sendMsg(ChatID,MsgID,"✦¹ لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
 
 if UserID == SUDO_ID then 
 rinkuser = 1
