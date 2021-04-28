@@ -2814,9 +2814,8 @@ end
 if MsgText[1] == 'تعيين كليشه الايدي' or MsgText[1] == 'تعيين الايدي' or MsgText[1] == 'تعيين ايدي'  or MsgText[1] == 'تعيين كليشة الايدي'  then 
 if not msg.Creator then return "• هذا الامر يخص {منشئ اساسي,المنشئ,المطور} فقط  \n" end
 redis:setex(ws..":Witting_KleshaID_public"..msg.chat_id_..msg.sender_user_id_,1000,true)
-return ' حسناً , الان ارسل كليشه الايدي الجديده \n علما ان الاختصارات كالاتي : \n \n#name : لوضع اسم المستخدم\n#id : لوضع ايدي المستخدم\n#username : لوضع معرف المستخدم \n#stast : لوضع نوع رتبه المستخدم \n#game : لوضع تفاعل المستخدم \n#msgs : لاضهار عدد الرسائل \n#auto : لاضهار عدد النقاط \n#edit : لاضهار عدد السحكات \n#bot : لاضهار اسم البوت\n{المطور} : لاضهار معرف المطور الاساسي\n قناه تعليمات ونشر كلايش الايدي \n قناه الكلايش : [@hill_id] \n➼' 
+return ' حسناً , ܁يمكنك اضافة ܊\n▹ `#username` - ܁ اسم المستخدم\n▹ `#msgs` - ܁ عدد رسائل المستخدم\n▹ `#photos` - ܁ عدد صور المستخدم\n▹ `#id` - ܁ ايدي المستخدم\n▹ `#stast` - ܁ رتبة المستخدم\n▹ `#edit` - ܁ عدد تعديلات \n▹ `#game` - ܁ نقاط'
 end
-
 
 if MsgText[1] == "تنزيل الكل" then
 if not msg.Admin then return "هذا الامر ليس لك عزيزي .  \n" end
