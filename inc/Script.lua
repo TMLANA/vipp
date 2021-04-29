@@ -3296,9 +3296,18 @@ SUDO_USERR = "• معرف المطور  ⇠ "..SUDO_USER.." \n•"
 else
 SUDO_USERR = ""
 end
-sendPhoto(msg.chat_id_,msg.id_,Photo_Weloame,[[• مرحبا أنا بوت اسمي ]]..redis:get(ws..':NameBot:')..[[ 🎖
-• يمكنني حمايه المجموعات من السبام والتوجيه الخ....
- من السبام والتوجيه والتكرار والخ...
+sendPhoto(msg.chat_id_,msg.id_,Photo_Weloame,[[• أهلا أنا بوت اسمي ]]..redis:get(ws..':NameBot:')..[[ 🎖
+• اختصاص البوت حماية المجموعات
+
+• لتفعيل البوت عليك اتباع مايلي ...
+
+• اضف البوت الى مجموعتك
+
+• ارفعه مشرف
+
+• ارسل كلمة  تفعيل  ليتم تفعيل المجموعه
+
+• سيتم ترقيتك منشئ اساسي في البوت
 ]]..SUDO_USERR) 
 return false
 else
@@ -3313,7 +3322,7 @@ end
 
 if MsgText[1] == "ضع شرط التفعيل" and MsgText[2] and MsgText[2]:match('^%d+$') then 
 redis:set(ws..':addnumberusers',MsgText[2]) 
-return '💱 تم وضع شرط التفعيل البوت اذا كانت المجموعه اكثر من *【'..MsgText[2]..'】* عضو  •\n' 
+return ' تم وضع شرط التفعيل البوت اذا كانت المجموعه اكثر من *【'..MsgText[2]..'】* عضو  •\n' 
 end
 
 if MsgText[1] == "شرط التفعيل" then 
@@ -3374,7 +3383,7 @@ return false
 end
 
 if MsgText[1] == 'المطور' then
-return redis:get(ws..":TEXT_SUDO") or '🗃• لا توجد كليشه المطور .\n📰• يمكنك اضافه كليشه من خلال الامر\n       " `ضع كليشه المطور` " \n'
+return redis:get(ws..":TEXT_SUDO") or '• لا توجد كليشه المطور .\n• يمكنك اضافه كليشه من خلال الامر\n       " `ضع كليشه المطور` " \n'
 end
 
 if MsgText[1] == "اذاعه بالتثبيت"  or MsgText[1] =="اذاعه بالتثبيت " then
@@ -4354,10 +4363,10 @@ end
 
 end 
 
-if MsgText[1] == "الجارح"  then
-local text = " [مطور السورس](t.me/a_l_q_a_lb_a_l_j_a_r_i_h)"
+if MsgText[1] == "نيلسون"  then
+local text = " [مطور السورس](t.me/URRRP)"
 local inline = {
-{{text = '-𝐃𝐄𝐕 ',url="https://t.me/a_l_q_a_lb_a_l_j_a_r_i_h"}},
+{{text = '-𝐃𝐄𝐕 ',url="https://t.me/URRRP"}},
 }   
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
@@ -4374,12 +4383,11 @@ end
 
 
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
-local text = " مرحبا بك في سورس الجارح"
+local text = " مرحبا بك في سورس نابليون"
 local inline = {
-{{text = '𝚂𝙾𝚄𝚁𝙲𝙴  ☬',url="https://t.me/ROMDREAM1"}},
-{{text = 'GROUP',url="https://t.me/alqalbaljarih2"}},
-{{text = '-𝙳𝙴𝚅¹ ',url="https://t.me/asera126"}},
-{{text = '-𝙳𝙴𝚅² ',url="https://t.me/a_l_q_a_lb_a_l_j_a_r_i_h"}},
+{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 ',url="https://t.me/SO_NAP"}},
+{{text = '𝗚𝗥𝗢𝗨𝗣',url="https://t.me/PSSS8"}},
+{{text = '𝐀𝐜𝐞 🎖',url="https://t.me/URRRP"}},
 }   
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
@@ -4558,9 +4566,14 @@ SUDO_USERR = ""
 end
 
 
-text = [[• مرحبا انا بوت اسمي []]..redis:get(ws..':NameBot:')..[[] 
-• يمكنني حمايه المجموعات من السبام والتوجيه الخ....
-•[قناة السورس👑](T.ME/ROMDREAM1) 
+text = [[• اهلا بك عزيزي 
+ انا بوت اسمي []]..redis:get(ws..':NameBot:')..[[] 
+• اختصاص البوت حماية المجموعات
+• لتفعيل البوت عليك اتباع مايلي ...
+• اضف البوت الى مجموعتك
+• ارفعه مشرف
+• ارسل كلمة  تفعيل  ليتم تفعيل المجموعه
+• سيتم ترقيتك منشئ اساسي في البوت 
 ]]..SUDO_USERR..[[
 
 •]]
@@ -4635,7 +4648,7 @@ end
 else
 if not redis:get(ws..'lock_twasel') then
 if msg.forward_info_ or msg.content_.ID == "MessageSticker" or msg.content_.ID == "MessageUnsupported" or msg.content_.ID == "MessageDocument" then
-return sendMsg(msg.chat_id_,msg.id_," عذرا لا يمكنك ارسال {ملف , توجيه‌‏ , ملصق , فديو كام} ")
+return sendMsg(msg.chat_id_,msg.id_," عذرا لا يمكنك ارسال {ملف , توجيه‌‏ , ملصق , فديو} ")
 end
 SUDO_USER = redis:hgetall(ws..'username:'..SUDO_ID).username
 if SUDO_USER:match('@[%a%d_]+') then 
@@ -5220,7 +5233,7 @@ if msg.Director and redis:get(ws..":Witting_AmrDel:"..msg.chat_id_..msg.sender_u
 
 local checkk = redis:hdel(ws..":AwamerBot:"..msg.chat_id_,msg.text)
 if checkk ~=0 then
-tiires =  "• تم مسح الامر {* "..msg.text.." *} من قائمه الاومر \n..."
+tiires =  "• تم مسح الامر * "..msg.text.." * من قائمه الاومر \n..."
 else
 tiires = "• هذا الامر ليس موجود ضمن الاوامر المضافه  \n"
 end

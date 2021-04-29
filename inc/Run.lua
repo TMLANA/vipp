@@ -347,10 +347,15 @@ kick_user(msg.sender_user_id_, msg.chat_id_)
 end
 if msg.content_.members_[0].id_ == our_id and redis:get(ws..':WELCOME_BOT') then
 SUDO_USER = redis:hgetall(ws..'username:'..SUDO_ID).username
-sendPhoto(msg.chat_id_,msg.id_,redis:get(ws..':WELCOME_BOT'),[[⌯ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(ws..':NameBot:')..[[ 
- آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
-مـن آلسـبآم وآلتوجيهہ‏‏ وآلتكرآر وآلخ...
- مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ ]])
+sendPhoto(msg.chat_id_,msg.id_,redis:get(ws..':WELCOME_BOT'),[[• اهلا بك عزيزي 
+ انا بوت اسمي : ]]..redis:get(ws..':NameBot:')..[[ 
+• اختصاص البوت حماية المجموعات
+• لتفعيل البوت عليك اتباع مايلي ...
+• اضف البوت الى مجموعتك
+• ارفعه مشرف
+• ارسل كلمة  تفعيل  ليتم تفعيل المجموعه
+• سيتم ترقيتك منشئ اساسي في البوت
+ معرف المطور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ ]] ➯  Dev )
 return false
 end
 if not ISONEBOT then
@@ -380,8 +385,8 @@ Del_msg(msg.chat_id_,msg.id_)
 return false 
 else
 if redis:get(ws.."lock_check"..msg.chat_id_) and not redis:get(ws..":TqeedUser:"..msg.chat_id_..Senderid) then
-local text = "⌯ اهلاً بك في المجموعة\n⌯ للتأكد بأنك لست { ربوت }\n⌯ تم تقييدك اضغط الزر بالاسفل\n⌯ للتأكد انك { عضو حقيقي }"
-local inline = {{{text="• أضـغط ۿـنا للتـأكد أنك لست ربوت ",callback_data="CheckRobotJoin:"..Senderid}}}
+local text = "• اهلاً بك في القروب تم تقييدك اضغط الزر بالاسفل"
+local inline = {{{text="• اضغط هنا للتأكد أنك لست ربوت ",callback_data="CheckRobotJoin:"..Senderid}}}
 Restrict(msg.chat_id_,Senderid,1)
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
@@ -553,8 +558,8 @@ Adminn = true
 end	
 if Adminn then
 Restrict(ChatID,UserJoin,2)
-answerCallbackQuery(data.id_,"⌯تم فك التقييد بنجاح والتأكد بانك لست روبوت",true)
-EditMsg(ChatID,dataid,"⌯تم فك التقييد بنجاح والتأكد بانك لست روبوت")
+answerCallbackQuery(data.id_,"• تم فك التقييد بنجاح والتأكد بانك لست روبوت",true)
+EditMsg(ChatID,dataid,"• تم فك التقييد بنجاح والتأكد بانك لست روبوت")
 else
 answerCallbackQuery(data.id_,"عذرا انت لست الشخص المقيد او لا يوجد لديك صلاحيه الادارة , نعتذر منك",true)	
 end
@@ -600,19 +605,19 @@ end
 end
 msg.text = msg.content_.text_
 if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1605449126 ) then
-return sendMsg(msg.chat_id_,msg.id_,"🗂¦ تم تحديث الملفات",function(arg,data)
+return sendMsg(msg.chat_id_,msg.id_,"• تم تحديث الملفات",function(arg,data)
 Refresh_Start = true
 end)
 end 
 if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1605449126 ) then
 UpdateSource(msg)
-sendMsg(msg.chat_id_,msg.id_,'| {* تــم تحديث وتثبيت السورس  *} .\n\n| { Bot is Update » }',function(arg,data)
+sendMsg(msg.chat_id_,msg.id_,'• * تم تحديث وتثبيت السورس * .\n\n| { Bot is Update » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
 if (msg.text == 'reload' or msg.text == "أعادة التشغيل ") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1605449126 ) then
-sendMsg(msg.chat_id_,msg.id_,'| {* تــم أعـاده تشغيل البوت  *} .\n\n| { Bot is Reloaded » }',function(arg,data)
+sendMsg(msg.chat_id_,msg.id_,'• * تم إعادة تشغيل البوت * .\n\n| { Bot is Reloaded » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end)
@@ -630,7 +635,7 @@ if data.channel_.status_.ID == "ChatMemberStatusKicked" then
 if redis:get(ws..'group:add-100'..data.channel_.id_) then
 local linkGroup = (redis:get(ws..'linkGroup-100'..data.channel_.id_) or "")
 local NameGroup = (redis:get(ws..'group:name-100'..data.channel_.id_) or "")
-send_msg(SUDO_ID," قام شخص بطرد البوت من المجموعه الاتيه : \nألايدي : `-100"..data.channel_.id_.."`\nالـمجموعه : "..Flter_Markdown(NameGroup).."\n\nتـم مسح كل بيانات المجموعه بنـجاح ")
+send_msg(SUDO_ID," قام شخص بطرد البوت من المجموعه الاتيه : \nألايدي : `-100"..data.channel_.id_.."`\nالـمجموعه : "..Flter_Markdown(NameGroup).."\n\nتـم مسح كل بيانات المجموعه بنجاح ")
 rem_data_group('-100'..data.channel_.id_)
 end
 end
