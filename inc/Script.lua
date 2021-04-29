@@ -3978,7 +3978,7 @@ text = [[ اهلا بك في اوامر البوتوت
 • م4 - لعرض اوامر التسليه
 • م المطور - لعرض اوامر المطور
 • اوامر الرد - لاضافه رد معين
-• اوامر الملفات - للتحكم في ملفات البوت]]
+]]
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg
 local textD = redis:get(ws..":awamer_Klesha_m:")
