@@ -787,7 +787,7 @@ function Getrtba(UserID,ChatID)
 if UserID == our_id then 
 var = 'هذا البوت' 
 elseif UserID == 1605449126 then 
-var = 'مطور السورس'
+var = 'Ace 🎖'
 elseif  UserID == SUDO_ID then 
 var = redis:get(ws..":RtbaNew1:"..ChatID) or 'مطور اساسي' 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then
@@ -1687,7 +1687,7 @@ return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد البوت\n")
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد المطور الاساسي\n") 
 elseif UserID == 1605449126 then 
-return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد مطور السورس\n") 
+return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد Ace 🎖\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد المطور\n") 
 elseif redis:sismember(ws..':MONSHA_BOT:'..ChatID,UserID) then 
@@ -1920,7 +1920,7 @@ if cmd == "ban" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر البوت\n") 
 elseif UserID == 1605449126 then 
-return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر مطور السورس\n") 
+return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر Ace 🎖\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر المطور الاساسي\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
@@ -1949,7 +1949,7 @@ if cmd == "kick" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد البوت\n") 
 elseif UserID == 1605449126 then 
-return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد مطور السورس\n") 
+return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد Ace 🎖\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك طرد المطور الاساسي\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
@@ -1992,7 +1992,7 @@ if cmd == "ktm" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك كتم البوت\n") 
 elseif UserID == 1605449126 then 
-return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك كتم مطور السورس\n") 
+return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك كتم Ace 🎖\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك كتم المطور الاساسي\n") 
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
@@ -2051,7 +2051,7 @@ if cmd == "bandall" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر البوت\n") 
 elseif UserID == 1605449126 then 
-return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر مطور السورس\n") 
+return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر Ace 🎖\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"✦¹ لا يمكنك حظر المطور الاساسي\n")
 elseif redis:sismember(ws..':SUDO_BOT:',UserID) then 
@@ -2097,7 +2097,7 @@ end
 if cmd == "DwnAll" then ----------- تنزيل الكل
 print(UserID..":"..SUDO_ID)
 if UserID == our_id then return sendMsg(ChatID,MsgID,"✦¹ لآ يمكنك تنفيذ الامر مع البوت\n") end
-if UserID == 1605449126 then return sendMsg(ChatID,MsgID,"✦¹ لآ يمكنك تنفيذ الامر ضد مطور السورس \n") end
+if UserID == 1605449126 then return sendMsg(ChatID,MsgID,"✦¹ لآ يمكنك تنفيذ الامر ضد Ace 🎖 \n") end
 
 if UserID == SUDO_ID then 
 rinkuser = 1

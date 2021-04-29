@@ -265,8 +265,8 @@ return false
 end 
 
 if msg.sender_user_id_ == 1605449126 then 
-msg.TheRankCmd = 'مطور السورس'
-msg.TheRank = 'مطور السورس'
+msg.TheRankCmd = 'Ace 🎖'
+msg.TheRank = 'Ace 🎖'
 msg.Rank = 1
 elseif msg.sender_user_id_ == SUDO_ID then 
 msg.TheRankCmd = redis:get(ws..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
