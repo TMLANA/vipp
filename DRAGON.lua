@@ -2629,14 +2629,10 @@ end,nil)
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 Text = [[
-local text = " مرحبا بك في سورس نابليون"
-local inline = {
-{{text = '𝐒𝐎𝐔𝐑𝐂𝐄 ',url="https://t.me/SO_NAP"}},
-{{text = '𝗚𝗥𝗢𝗨𝗣',url="https://t.me/PSSS8"}},
-{{text = '𝐀𝐜𝐞 🎖',url="https://t.me/URRRP"}},
-}   
+• [Source Napoleon](https://t.me/SO_NAP)
+• [مطور السورس](https://t.me/URRRP)   
 ]]
-return send_inline(msg.chat_id_,text,inline,msg.id_)     
+send(msg.chat_id_, msg.id_,Text)
 return false
 end
 --------------------------------------------------------------------------------------------------------------
