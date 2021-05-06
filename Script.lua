@@ -4478,14 +4478,14 @@ end
 if msg.text:match(6) then
 infochange5 = trues
 end
-if msg.text:match("[9]") then
+if msg.text:match(9) then
 infochange = trues
 infochange1 = trues
 infochange2 = trues
 infochange3 = trues
 infochange4 = trues
 infochange5 = trues
-elseif msg.text:match("[8]") then
+elseif msg.text:match(8) then
 infochange = trues
 infochange1 = trues
 infochange2 = trues
