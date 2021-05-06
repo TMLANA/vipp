@@ -7,7 +7,7 @@
 --
 -- Latest version: http://regex.info/blog/lua/json
 --
--- This code is released under a Creative Com CC-BY "Attribution" License:
+-- This code is released under a Creative Commons CC-BY "Attribution" License:
 -- http://creativecommons.org/licenses/by/3.0/deed.en_US
 --
 -- It can be used for any purpose so long as the copyright notice above,
