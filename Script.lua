@@ -6544,7 +6544,19 @@ end)
 
 
 ------------------------------{ End Replay Send }------------------------
-
+elseif Text== "انجب" or Text== "نجب" or Text=="جب" then
+if msg.SudoUser then  
+return sendMsg(msg.chat_id_,msg.id_,"حاضر مو تدلل حضره المطور  😇 ")
+elseif msg.Creator then 
+return sendMsg(msg.chat_id_,msg.id_,"ع راسي تدلل انته المنشئ تاج راسي 😌")
+elseif msg.Director then 
+return sendMsg(msg.chat_id_,msg.id_,"لخاطرك راح اسكت لان مدير وع راسي  😌")
+elseif msg.Admin then 
+return sendMsg(msg.chat_id_,msg.id_,"فوك مامصعدك ادمن ؟؟ انته انجب 😏")
+else 
+return sendMsg(msg.chat_id_,msg.id_,"انجب انته لاتندفر 😏")
+end 
+end 
 ------------------------------{ Start Checking CheckExpire }------------------------
 
 if redis:get(amrko..'CheckExpire::'..msg.chat_id_) then
