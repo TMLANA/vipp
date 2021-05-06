@@ -420,18 +420,18 @@ end
 ----------------------{ End Api Token Bot }-----------------------------
 
 function UpdateSource(msg,edit)
-if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█          |') end
-if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███         |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |ـــــــــ          |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |ـــــــــــــــ         |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/Run.lua','./inc/Run.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████       |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |ـــــــــــــــــــــ   |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/locks.lua','./inc/locks.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████     |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |ـــــــــــــــــــــــــــ |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/Script.lua','./inc/Script.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████   |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |ــــــــــــــــــــــــــــــــــ|') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/functions.lua','./inc/functions.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'90% - |███████████   |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'90% - |ـــــــــــــــــــــــــــــــــــــــــ |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/games.lua','./plugins/games.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n🔝*•* تم تحديث السورس الى اصدار *v'..redis:get(amrko..":VERSION")..'*\n📟*•* تم اعاده تشغيل السورس بنجاح') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |تم التحديث|\n\n*•* تم تحديث السورس الى اصدار *v'..redis:get(amrko..":VERSION")..'*\n*•* تم اعاده تشغيل السورس بنجاح') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")
 
