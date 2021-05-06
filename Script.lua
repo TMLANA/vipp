@@ -1103,7 +1103,7 @@ if data.type_.ID == "ChannelChatInfo" then return sendMsg(arg.ChatID,arg.MsgID,"
 redis:hset(amrko..'username:'..arg.UserID,'username',USERNAME)
 redis:setex(amrko..":uploadingsomeon:"..msg.chat_id_..msg.sender_user_id_,500,NameUser)
 redis:setex(amrko..":uploadingsomeon2:"..msg.chat_id_..msg.sender_user_id_,500,arg.UserID)
-sendMsg(arg.ChatID,arg.MsgID,"• حسناً الان ارسل رقم الصلاحيات للمشرف :\n1- تغيير معلومات المجموعة فقط .\n2- حذف رسائل المستخدمين فقط .\n3- دعوة المستخدمين فقط .\n4- تقييد وحظر المستخدمين فقط .\n5- تثبيت الرسائل فقط .\n6- رفع مشرفين فقط .\n[*] - كل الصلاحيات م عدا رفع مشرفين .\n[**]- كافة الصلاحيات التي سبقت .\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\nاختار رقم الصلاحية مع اللقب كمثال : \nنابليون 7.\n") 
+sendMsg(arg.ChatID,arg.MsgID,"• حسناً الان ارسل رقم الصلاحيات للمشرف :\n1- تغيير معلومات المجموعة فقط .\n2- حذف رسائل المستخدمين فقط .\n3- دعوة المستخدمين فقط .\n4- تقييد وحظر المستخدمين فقط .\n5- تثبيت الرسائل فقط .\n6- رفع مشرفين فقط .\n8 - كل الصلاحيات م عدا رفع مشرفين .\n9 - كافة الصلاحيات التي سبقت .\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\nاختار رقم الصلاحية مع اللقب كمثال : \nنابليون 7.\n") 
 
 end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
@@ -1119,7 +1119,7 @@ if data.type_.ID == "ChannelChatInfo" then return sendMsg(arg.ChatID,arg.MsgID,"
 redis:hset(amrko..'username:'..UserID,'username',arg.USERNAME)
 redis:setex(amrko..":uploadingsomeon:"..arg.ChatID..msg.sender_user_id_,500,NameUser)
 redis:setex(amrko..":uploadingsomeon2:"..arg.ChatID..msg.sender_user_id_,500,UserID)
-sendMsg(arg.ChatID,arg.MsgID,"• حسناً الان ارسل رقم الصلاحيات للمشرف :\n1- تغيير معلومات المجموعة فقط .\n2- حذف رسائل المستخدمين فقط .\n3- دعوة المستخدمين فقط .\n4- تقييد وحظر المستخدمين فقط .\n5- تثبيت الرسائل فقط .\n6- رفع مشرفين فقط .\n[*] - كل الصلاحيات م عدا رفع مشرفين .\n[**]- كافة الصلاحيات التي سبقت .\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\nاختار رقم الصلاحية مع اللقب كمثال : \nنابليون 7 .") 
+sendMsg(arg.ChatID,arg.MsgID,"• حسناً الان ارسل رقم الصلاحيات للمشرف :\n1- تغيير معلومات المجموعة فقط .\n2- حذف رسائل المستخدمين فقط .\n3- دعوة المستخدمين فقط .\n4- تقييد وحظر المستخدمين فقط .\n5- تثبيت الرسائل فقط .\n6- رفع مشرفين فقط .\n8 - كل الصلاحيات م عدا رفع مشرفين .\n9 - كافة الصلاحيات التي سبقت .\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\nاختار رقم الصلاحية مع اللقب كمثال : \nنابليون 7 .") 
 end,{ChatID=msg.chat_id_,MsgID=msg.id_,USERNAME=MsgText[2]})
 elseif MsgText[2] and MsgText[2]:match('^%d+$') then 
 GetUserID(MsgText[2],action_by_id,{msg=msg,cmd="upMshrf"}) 
@@ -4433,14 +4433,14 @@ if msg.SuperCreator and redis:get(amrko..":uploadingsomeon:"..msg.chat_id_..msg.
 
 NameUser = redis:get(amrko..":uploadingsomeon:"..msg.chat_id_..msg.sender_user_id_)
 UserID = redis:get(amrko..":uploadingsomeon2:"..msg.chat_id_..msg.sender_user_id_)
-if not msg.text:match("[1234567]") and not msg.text:match("[*]") and not msg.text:match("[*][*]") then
+if not msg.text:match("[1234567]") and not msg.text:match("[8]") and not msg.text:match("[9]") then
 redis:del(amrko..":uploadingsomeon:"..msg.chat_id_..msg.sender_user_id_)
 redis:del(amrko..":uploadingsomeon2:"..msg.chat_id_..msg.sender_user_id_)
 return sendMsg(msg.chat_id_,msg.id_,"• تم الغاء الامر , يجب ان يحتوي رسالتك ع ارقام الصلاحيات المعروضه . \n")   
 end
 
 Nikname = msg.text:gsub("[1234567]","")
-Nikname = Nikname:gsub("[*]","")
+Nikname = Nikname:gsub("[8]","")
 ResAdmin = UploadAdmin(msg.chat_id_,UserID,msg.text)  
 if ResAdmin == '{"ok":false,"error_code":400,"description":"Bad Request: not enough rights"}' then
 sendMsg(msg.chat_id_,msg.id_,"• عذرا البوت ليس لديه صلاحيه رفع مشرفين في المجموعه \n") 
@@ -4478,14 +4478,14 @@ end
 if msg.text:match(6) then
 infochange5 = trues
 end
-if msg.text:match("[*][*]") then
+if msg.text:match("[9]") then
 infochange = trues
 infochange1 = trues
 infochange2 = trues
 infochange3 = trues
 infochange4 = trues
 infochange5 = trues
-elseif msg.text:match("[*]") then
+elseif msg.text:match("[8]") then
 infochange = trues
 infochange1 = trues
 infochange2 = trues
