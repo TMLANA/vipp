@@ -3912,7 +3912,9 @@ local text = [[
 • رفع بقلبي  : تنزيل من قلبي
 • طلاق  : زواج 
 ━━━━━━━━━━━━
-[- ɴᴀᴘᴏʟᴇᴏɴ](https://t.me/SO_NAP)
+local inline = {
+{{text = 'ɴᴀᴘᴏʟᴇᴏɴ .',url="https://t.me/SO_NAP"}},
+}
 ]]
 
 GetUserID(msg.sender_user_id_,function(arg,data)
