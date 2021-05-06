@@ -1717,15 +1717,15 @@ end
 if MsgText[1] == "الادارين" or MsgText[1] == "الأداريين" or MsgText[1] == "الاداريين" or MsgText[1] == "الادارين" then   
 if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
 if not redis:get(amrko.."lock_takkl"..msg.chat_id_) then  return "• الامر معطل من قبل الادراة" end 
-if redis:get(amrko.."chat:tagall"..msg.chat_id_) then  return "• يمكنك عمل تاك للكل كل *5 دقائق* فقط" end 
+if redis:get(amrko.."chat:tagall"..msg.chat_id_) then  return "• يمكنك عمل منشن كل *5 دقائق* فقط" end 
 redis:setex(amrko..'chat:tagall'..msg.chat_id_,300,true)
 return TagAll(msg) 
 end
 
-if MsgText[1] == "تاك للكل" then
+if MsgText[1] == "منشن" then
 if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
 if not redis:get(amrko.."lock_takkl"..msg.chat_id_) then  return "• الامر معطل من قبل الادراة" end 
-if redis:get(amrko.."chat:tagall"..msg.chat_id_) then  return "• يمكنك عمل تاك للكل كل *5 دقائق* فقط" end 
+if redis:get(amrko.."chat:tagall"..msg.chat_id_) then  return "• يمكنك عمل منشن كل *5 دقائق* فقط" end 
 redis:setex(amrko..'chat:tagall'..msg.chat_id_,300,true)
 if MsgText[2] and MsgText[2]:match('^ل %d+$') then
 taglimit = MsgText[2]:match('^ل %d+$'):gsub('ل ','')
@@ -2189,7 +2189,7 @@ if MsgText[1] == "تفعيل الحمايه" 	then return unlock_AntiEdit(msg) e
 if MsgText[1] == "تفعيل المغادره" 	then return unlock_leftgroup(msg) end 
 if MsgText[1] == "تفعيل الحظر" 	then return unlock_KickBan(msg) end 
 if MsgText[1] == "تفعيل الرابط" 	then return unlock_linkk(msg) end 
-if MsgText[1] == "تفعيل تاك للكل" 	then return unlock_takkl(msg) end 
+if MsgText[1] == "تفعيل المنشن" 	then return unlock_takkl(msg) end 
 if MsgText[1] == "تفعيل التحقق" 		then return unlock_check(msg) end 
 if MsgText[1] == "تفعيل التنظيف التلقائي" 		then return unlock_cleaner(msg) end 
 if MsgText[1] == "تفعيل ردود السورس" 		then return unlock_rdodSource(msg) end 
@@ -2205,7 +2205,7 @@ if MsgText[1] == "تعطيل الحمايه" 	then return lock_AntiEdit(msg) end
 if MsgText[1] == "تعطيل المغادره" 	then return lock_leftgroup(msg) end 
 if MsgText[1] == "تعطيل الحظر" 	then return lock_KickBan(msg) end 
 if MsgText[1] == "تعطيل الرابط" 	then return lock_linkk(msg) end 
-if MsgText[1] == "تعطيل تاك للكل" 	then return lock_takkl(msg) end 
+if MsgText[1] == "تعطيل المنشن" 	then return lock_takkl(msg) end 
 if MsgText[1] == "تعطيل التحقق" 		then return lock_check(msg) end 
 if MsgText[1] == "تعطيل التنظيف التلقائي" 		then return lock_cleaner(msg) end 
 if MsgText[1] == "تعطيل ردود السورس" 		then return lock_rdodSource(msg) end 
@@ -6737,8 +6737,8 @@ amrko = {
 "^([dD][pP]) ([%a%d_]+.lua)$", 
 
 
-"^(تاك للكل)$",
-"^(تاك للكل) (ل %d+)$",
+"^(منشن)$",
+"^(منشن) (ل %d+)$",
 "^(الأدارين)$",
 "^(الأداريين)$",
 "^(الاداريين)$",
@@ -7040,7 +7040,7 @@ amrko = {
 "^(تعطيل تعيين الايدي)$",
 "^(تعطيل الحظر)$",
 "^(تعطيل الرابط)$",
-"^(تعطيل تاك للكل)$",
+"^(تعطيل المنشن)$",
 "^(تعطيل التحقق)$",
 "^(تفعيل الردود)$",
 "^(تفعيل الاذاعه)$",
@@ -7055,7 +7055,7 @@ amrko = {
 "^(تفعيل تعيين الايدي️)$",
 "^(تفعيل الحظر)$",
 "^(تفعيل الرابط)$",
-"^(تفعيل تاك للكل)$",
+"^(تفعيل المنشن)$",
 "^(تفعيل التحقق)$",
 "^(تفعيل البوت خدمي )$",
 "^(تفعيل البوت خدمي)$",
