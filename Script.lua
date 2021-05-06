@@ -67,15 +67,15 @@ local Kleshaidinfo = redis:get(amrko..":infoiduser_public:"..arg.chat_id_) or re
 
 if Kleshaidinfo then 
 local points = redis:get(amrko..':User_Points:'..arg.chat_id_..arg.sender_user_id_) or 0
-KleshaID = Kleshaidinfo:gsub("#name",arg.Namei)
-KleshaID = KleshaID:gsub("#id",arg.sender_user_id_)
-KleshaID = KleshaID:gsub("#username",arg.UserNameID1)
-KleshaID = KleshaID:gsub("#stast",arg.TheRank)
-KleshaID = KleshaID:gsub("#msg",Get_Ttl(arg.msgs))
-KleshaID = KleshaID:gsub("#msgs",arg.msgs)
-KleshaID = KleshaID:gsub("#edit",edited)
-KleshaID = KleshaID:gsub("#gmas",points)
-KleshaID = KleshaID:gsub("#bot",redis:get(amrko..':NameBot:'))
+KleshaID = Kleshaidinfo:gsub("#الاسم",arg.Namei)
+KleshaID = KleshaID:gsub("#الايدي",arg.sender_user_id_)
+KleshaID = KleshaID:gsub("#اليوزر",arg.UserNameID1)
+KleshaID = KleshaID:gsub("#الرتبه",arg.TheRank)
+KleshaID = KleshaID:gsub("#التفاعل",Get_Ttl(arg.msgs))
+KleshaID = KleshaID:gsub("#الرسائل",arg.msgs)
+KleshaID = KleshaID:gsub("#التعديل",edited)
+KleshaID = KleshaID:gsub("#النقاط",points)
+KleshaID = KleshaID:gsub("#البوت",redis:get(amrko..':NameBot:'))
 KleshaID = KleshaID:gsub("#dev",SUDO_USER)
 end
 if redis:get(amrko.."idphoto"..msg.chat_id_) then
@@ -4079,11 +4079,11 @@ local edited = (redis:get(amrko..':edited:'..msg.chat_id_..':'..msg.sender_user_
 local points = redis:get(amrko..':User_Points:'..msg.chat_id_..msg.sender_user_id_) or 0
 local Emsgs = redis:get(amrko..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
 if data.username_ then UserNameID = "@"..data.username_ else UserNameID = "لا يوجد" end  
-text = text:gsub("#name",Name)
-text = text:gsub("#id",msg.sender_user_id_)
-text = text:gsub("#username",UserNameID)
-text = text:gsub("#stast",msg.TheRank)
-text = text:gsub("#bot",redis:get(amrko..':NameBot:'))
+text = text:gsub("#الاسم",Name)
+text = text:gsub("#الايدي",msg.sender_user_id_)
+text = text:gsub("#اليوزر",UserNameID)
+text = text:gsub("#الرتبه",msg.TheRank)
+text = text:gsub("#البوت",redis:get(amrko..':NameBot:'))
 text = text:gsub("#dev",SUDO_USER)
 xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
@@ -5172,16 +5172,16 @@ gtupe = 'عضو'
 end
 
 welcome = welcome:gsub("〚 المجموعه 〛",Flter_Markdown((redis:get(amrko..'group:name'..msg.chat_id_) or '')))
-local welcome = welcome:gsub("#username",UserName)
-local welcome = welcome:gsub("#id",msg.adduser)
-local welcome = welcome:gsub("#stast",gtupe)
-local welcome = welcome:gsub("#msg",Get_Ttl(msgs))
-local welcome = welcome:gsub("#msgs",msgs)
-local welcome = welcome:gsub("#gmas",points)
-local welcome = welcome:gsub("#edit",edited)
-local welcome = welcome:gsub("#bot",redis:get(amrko..':NameBot:'))
+local welcome = welcome:gsub("#اليوزر",UserName)
+local welcome = welcome:gsub("#الايدي",msg.adduser)
+local welcome = welcome:gsub("#الرتبه",gtupe)
+local welcome = welcome:gsub("#التفاعل",Get_Ttl(msgs))
+local welcome = welcome:gsub("#الرسائل",msgs)
+local welcome = welcome:gsub("#النقاط",points)
+local welcome = welcome:gsub("#التعديل",edited)
+local welcome = welcome:gsub("#البوت",redis:get(amrko..':NameBot:'))
 local welcome = welcome:gsub("#dev",SUDO_USER)
-local welcome = welcome:gsub("#name",FlterName(msg.addname,20))
+local welcome = welcome:gsub("#الاسم",FlterName(msg.addname,20))
 sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(welcome))
 return false
 end 
@@ -5198,16 +5198,16 @@ local edited = (redis:get(amrko..':edited:'..msg.chat_id_..':'..msg.sender_user_
 local points = redis:get(amrko..':User_Points:'..msg.chat_id_..msg.sender_user_id_) or 0
 local msgs = redis:get(amrko..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
 welcome = welcome:gsub("〚 المجموعه 〛",Flter_Markdown((redis:get(amrko..'group:name'..msg.chat_id_) or '')))
-local welcome = welcome:gsub("#username",UserName)
-local welcome = welcome:gsub("#id",msg.sender_user_id_)
-local welcome = welcome:gsub("#stast",msg.TheRank)
-local welcome = welcome:gsub("#msg",Get_Ttl(msgs))
-local welcome = welcome:gsub("#msgs",msgs)
-local welcome = welcome:gsub("#gmas",points)
-local welcome = welcome:gsub("#edit",edited)
-local welcome = welcome:gsub("#bot",redis:get(amrko..':NameBot:'))
+local welcome = welcome:gsub("#اليوزر",UserName)
+local welcome = welcome:gsub("#الايدي",msg.sender_user_id_)
+local welcome = welcome:gsub("#الرتبه",msg.TheRank)
+local welcome = welcome:gsub("#التفاعل",Get_Ttl(msgs))
+local welcome = welcome:gsub("#الرسائل",msgs)
+local welcome = welcome:gsub("#النقاط",points)
+local welcome = welcome:gsub("#التعديل",edited)
+local welcome = welcome:gsub("#البوت",redis:get(amrko..':NameBot:'))
 local welcome = welcome:gsub("#dev",SUDO_USER)
-local welcome = welcome:gsub("#name",FlterName(data.first_name_..' '..(data.last_name_ or "" ),20))
+local welcome = welcome:gsub("#الاسم",FlterName(data.first_name_..' '..(data.last_name_ or "" ),20))
 sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(welcome)) 
 end)
 end

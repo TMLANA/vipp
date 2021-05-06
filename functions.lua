@@ -815,15 +815,15 @@ local NameUser = ResolveName(data)
 local Emsgs = redis:get(amrko..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
 if data.username_ then UserNameID = "@"..data.username_ else UserNameID = "لا يوجد" end  
 if Replay then
-Replay = Replay:gsub("#name",NameUser)
-Replay = Replay:gsub("#id",msg.sender_user_id_)
-Replay = Replay:gsub("#username",UserNameID)
-Replay = Replay:gsub("#stast",msg.TheRank)
-Replay = Replay:gsub("#msg",Get_Ttl(Emsgs))
-Replay = Replay:gsub("#msgs",Emsgs)
-Replay = Replay:gsub("#edit",edited)
-Replay = Replay:gsub("#gmas",points)
-Replay = Replay:gsub("#bot",redis:get(amrko..':NameBot:'))
+Replay = Replay:gsub("#الاسم",NameUser)
+Replay = Replay:gsub("#الايدي",msg.sender_user_id_)
+Replay = Replay:gsub("#اليوزر",UserNameID)
+Replay = Replay:gsub("#الرتبه",msg.TheRank)
+Replay = Replay:gsub("#التفاعل",Get_Ttl(Emsgs))
+Replay = Replay:gsub("#الرسائل",Emsgs)
+Replay = Replay:gsub("#التعديل",edited)
+Replay = Replay:gsub("#النقاط",points)
+Replay = Replay:gsub("#البوت",redis:get(amrko..':NameBot:'))
 Replay = Replay:gsub("#dev",SUDO_USER)
 else
 Replay =""
