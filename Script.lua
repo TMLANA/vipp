@@ -579,7 +579,7 @@ return false
 end
 
 if (MsgText[1] == "تنزيل المدير" or MsgText[1] == "تنزيل مدير" ) then
-if not msg.Creator then return "• هذا الامر يخص 〚 Myth,المنشئ} فقط  \n" end
+if not msg.Creator then return "• هذا الامر يخص 〚 Myth,المنشئ 〛 فقط  \n" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,function(arg,data)
 if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"• عذرا هذا العضو ليس موجود ضمن المجموعات \n") end
@@ -619,7 +619,7 @@ return false
 end
 
 if (MsgText[1] == "رفع منشى" or MsgText[1] == "رفع منشئ") then
-if not msg.SuperCreator then return "• هذا الامر يخص 〚 Myth,Dev} فقط  \n" end
+if not msg.SuperCreator then return "• هذا الامر يخص 〚 Myth,Dev 〛 فقط  \n" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,function(arg,data)
 if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"• عذرا هذا العضو ليس موجود ضمن المجموعات \n") end
@@ -667,7 +667,7 @@ return false
 end
 
 if (MsgText[1] == "تنزيل منشى" or MsgText[1] == "تنزيل منشئ" ) then
-if not msg.SuperCreator then return "• هذا الامر يخص 〚 Myth,Dev} فقط  \n" end
+if not msg.SuperCreator then return "• هذا الامر يخص 〚 Myth,Dev 〛 فقط  \n" end
 if not MsgText[2] and msg.reply_id then
 GetMsgInfo(msg.chat_id_,msg.reply_id,function(arg,data)
 local MsgID = arg.MsgID
@@ -1489,7 +1489,7 @@ end
 
 
 if MsgText[1] == "مسح المنشئيين الاساسيين" or MsgText[1] == "مسح المنشئين الاساسيين" or MsgText[1] == "مسح المنشئيين الاساسين" or MsgText[1] == "مسح المنشئين الاساسين" then 
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 
 local Admins = redis:scard(amrko..':MONSHA_Group:'..msg.chat_id_)
 if Admins == 0 then  
@@ -1598,7 +1598,7 @@ if MKTOMEN ==0 then
 return "• لا يوجد مستخدمين مكتومين في المجموعه " 
 end
 redis:del(amrko..'is_silent_users:'..msg.chat_id_)
-return "• بواسطه ⇦ "..msg.TheRankCmd.."   \n•  تم مسح 〚 * "..MKTOMEN.." *} من المكتومين  \n"
+return "• بواسطه ⇦ "..msg.TheRankCmd.."   \n•  تم مسح 〚 * "..MKTOMEN.." * 〛 من المكتومين  \n"
 end
 
 if MsgText[1] == 'مسح المميزين' then
@@ -1608,11 +1608,11 @@ if MMEZEN ==0 then
 return "**• لا يوجد مستخدمين مميزين في المجموعه " 
 end
 redis:del(amrko..'whitelist:'..msg.chat_id_)
-return "• بواسطه ⇦ "..msg.TheRankCmd.."   \n•  تم مسح 〚 * "..MMEZEN.." *} من المميزين  \n"
+return "• بواسطه ⇦ "..msg.TheRankCmd.."   \n•  تم مسح 〚 * "..MMEZEN.." * 〛 من المميزين  \n"
 end
 
 if MsgText[1] == 'مسح الرابط' then
-if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير} فقط  \n" end
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
 if not redis:get(amrko..'linkGroup'..msg.chat_id_) then 
 return "**• لا يوجد رابط مضاف اصلا " 
 end
@@ -1623,14 +1623,14 @@ end
 
 if MsgText[1] == "مسح" then
 if not MsgText[2] and msg.reply_id then 
-if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth} فقط  \n" end
+if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
 Del_msg(msg.chat_id_, msg.reply_id) 
 Del_msg(msg.chat_id_, msg.id_) 
 return false
 end
 
 if MsgText[2] and MsgText[2]:match('^%d+$') then
-if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير} فقط  \n" end
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
 if 1000 < tonumber(MsgText[2]) then return "• حدود المسح ,  يجب ان تكون ما بين  *[2-1000]*" end
 local DelMsg = MsgText[2] + 1
 GetHistory(msg.chat_id_,DelMsg,function(arg,data)
@@ -1759,7 +1759,7 @@ end
 end,nil)
 end
 if MsgText[1] == "منع" then 
-if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth} فقط  \n" end
+if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
 if MsgText[2] then
 return AddFilter(msg, MsgText[2]) 
 elseif msg.reply_id then
@@ -2218,7 +2218,7 @@ return "• حسناً ، يمكنك اضافة ترحيب بتلك الطريق
 end
 
 if MsgText[1] == "الترحيب" then
-if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth} فقط  \n" end
+if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
 if redis:get(amrko..'welcome:msg'..msg.chat_id_)  then
 return Flter_Markdown(redis:get(amrko..'welcome:msg'..msg.chat_id_))
 else 
@@ -2227,17 +2227,17 @@ end
 end
 
 if MsgText[1] == "المكتومين" then 
-if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth} فقط  \n" end
+if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
 return MuteUser_list(msg) 
 end
 
 if MsgText[1] == "المحظورين" then 
-if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth} فقط  \n" end
+if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
 return GetListBanned(msg) 
 end
 
 if MsgText[1] == "رفع الادمنيه" then
-if not msg.Creator then return "• هذا الامر يخص 〚 Myth,المنشئ} فقط  \n" end
+if not msg.Creator then return "• هذا الامر يخص 〚 Myth,المنشئ 〛 فقط  \n" end
 return set_admins(msg) 
 end
 
@@ -2321,7 +2321,7 @@ return false
 end
 
 if MsgText[1] == "تنزيل منشئ اساسي" or MsgText[1] == "تنزيل منشى اساسي" then
-if not msg.SudoUser then return "• هذا الامر يخص 〚 Myth} فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Myth 〛 فقط  \n" end
 
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,function(arg,data)
@@ -2378,19 +2378,19 @@ sendMsg(msg.chat_id_,msg.id_,"• تم مسح قائمه الاوامر  \n")
 end
 
 if MsgText[1] == 'مسح كليشه الايدي' or MsgText[1] == 'مسح الايدي' or MsgText[1] == 'مسح ايدي'  or MsgText[1] == 'مسح كليشة الايدي'  then 
-if not msg.Creator then return "• هذا الامر يخص 〚 منشئ اساسي,المنشئ,Myth} فقط  \n" end
+if not msg.Creator then return "• هذا الامر يخص 〚 منشئ اساسي,المنشئ,Myth 〛 فقط  \n" end
 redis:del(amrko..":infoiduser_public:"..msg.chat_id_)
 sendMsg(msg.chat_id_,msg.id_,"• تم مسح كليشة الايدي بنجاح \n")
 end
 
 if MsgText[1] == 'تعيين كليشه الايدي' or MsgText[1] == 'تعيين الايدي' or MsgText[1] == 'تعيين ايدي'  or MsgText[1] == 'تعيين كليشة الايدي'  then 
-if not msg.Creator then return "• هذا الامر يخص 〚 منشئ اساسي,المنشئ,Myth} فقط  \n" end
+if not msg.Creator then return "• هذا الامر يخص 〚 منشئ اساسي,المنشئ,Myth 〛 فقط  \n" end
 redis:setex(amrko..":Witting_KleshaID_public"..msg.chat_id_..msg.sender_user_id_,1000,true)
 return "• حسناً ، يمكنك اضافة الايدي بتلك الطريقة :\n▹ `#الاسم` -  اسم العضو .\n▹ `#اليوزر` -  اسم المستخدم .\n▹ `#الرسائل` -  عدد رسائل المستخدم .\n▹ `#الايدي` -  ايدي المستخدم .\n▹ `#الرتبه` -  رتبة المستخدم .\n▹ `#التعديل` - عدد تعديلات .\n▹ `#النقاط` - نقاط المستخدم .\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n[اشكال ايديات .](https://t.me/id_nabl)"  
 end
 
 if MsgText[1] == "تنزيل الكل" then
-if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth} فقط  \n" end
+if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
 
 if not MsgText[2] and msg.reply_id then 
 GetMsgInfo(msg.chat_id_,msg.reply_id,function(arg,data)
@@ -2629,14 +2629,14 @@ if not msg.Director then return "• هذا الامر يخص 〚 Myth,المن�
 local list = redis:hgetall(amrko..":AwamerBotArray2:"..msg.chat_id_)
 local list2 = redis:hgetall(amrko..":AwamerBotArray:"..msg.chat_id_)
 message = "• الاوامر الجديد : \n\n" i = 0
-for name,Course in pairs(list) do i = i + 1 message = message ..i..' - *〚 * '..name..' *}* ~> '..Course..' \n'  end 
+for name,Course in pairs(list) do i = i + 1 message = message ..i..' - *〚 * '..name..' * 〛* ~> '..Course..' \n'  end 
 if i == 0 then return "• لا توجد اوامر مضافه في القائمه \n " end
 return message
 end
 
 
 if MsgText[1] == "مسح الاوامر" then
-if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير} فقط  \n" end
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
 local Awammer 	= redis:del(amrko..":AwamerBot:"..msg.chat_id_)
 redis:del(amrko..":AwamerBotArray:"..msg.chat_id_)
 redis:del(amrko..":AwamerBotArray2:"..msg.chat_id_)
@@ -2649,7 +2649,7 @@ end
 
 
 if MsgText[1] == "تعيين امر" or MsgText[1] == "تعين امر" or MsgText[1] == "اضف امر" then
-if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير} فقط  \n" end
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
 if MsgText[2] then
 
 local checkAmr = false
@@ -3003,19 +3003,19 @@ end
 end
 
 if MsgText[1] == 'المجموعات' or MsgText[1] == "المجموعات " then 
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 return '• عدد المجموعات المفعلة » `'..redis:scard(amrko..'group:ids')..'`  ' 
 end
 
 if MsgText[1] == 'مسح كليشه الايدي عام' or MsgText[1] == 'مسح الايدي عام' or MsgText[1] == 'مسح ايدي عام'  or MsgText[1] == 'مسح كليشة الايدي عام' or MsgText[1] == 'مسح كليشه الايدي عام 🗑' then 
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 if not msg.SudoBase and not redis:get(amrko.."lockidedit") then return "• الامر معطل من قبل Dev  \n" end
 redis:del(amrko..":infoiduser")
 return sendMsg(msg.chat_id_,msg.id_,"• تم مسح كليشة الايدي العام بنجاح \n")
 end
 
 if MsgText[1] == 'تعيين كليشه الايدي عام' or MsgText[1] == 'عام تعيين الايدي' or MsgText[1] == 'تعيين ايدي عام'  or MsgText[1] == 'تعيين كليشة الايدي عام'  or MsgText[1] == 'تعيين كليشه الايدي عام ' then 
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 if not msg.SudoBase and not redis:get(amrko.."lockidedit") then return "• تعيين الايدي معطل من قبل Dev  \n" end
 redis:setex(amrko..":Witting_KleshaID"..msg.chat_id_..msg.sender_user_id_,1000,true)
 return "• حسناً ، يمكنك اضافة الايدي بتلك الطريقة :\n▹ `#الاسم` -  اسم العضو .\n▹ `#اليوزر` -  اسم المستخدم .\n▹ `#الرسائل` -  عدد رسائل المستخدم .\n▹ `#الايدي` -  ايدي المستخدم .\n▹ `#الرتبه` -  رتبة المستخدم .\n▹ `#التعديل` - عدد تعديلات .\n▹ `#النقاط` - نقاط المستخدم .\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n[اشكال ايديات .](https://t.me/id_nabl)" 
@@ -3023,13 +3023,13 @@ end
 
 
 if MsgText[1] == 'قائمه المجموعات' then 
-if not msg.MudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.MudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 return chat_list(msg) 
 end
 
 
 if MsgText[1] == 'تعطيل' and MsgText[2] and MsgText[2]:match("(%d+)") then
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 local idgrup = "-100"..MsgText[2]
 local name_gp = redis:get(amrko..'group:name'..idgrup)
 GroupTitle(idgrup,function(arg,data)
@@ -3062,13 +3062,13 @@ end,nil)
 end
 
 if MsgText[1] == "اذاعه بالتثبيت"  or MsgText[1] =="اذاعه بالتثبيت " then
-if not msg.SudoUser then return"• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 redis:setex(amrko..':prod_pin:'..msg.chat_id_..msg.sender_user_id_,300, true) 
 return "• حسناً الان ارسل رساله ليتم اذاعتها بالتثبيت  \n" 
 end
 
 if MsgText[1] == "اذاعه عام بالتوجيه" or MsgText[1] == "اذاعه عام بالتوجيه 📣" then
-if not msg.SudoUser then return"• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 if not msg.SudoBase and not redis:get(amrko..'lock_brod') then 
 return "• الاذاعه مقفوله من قبل Dev  " 
 end
@@ -3077,7 +3077,7 @@ return "• حسناً الان ارسل التوجيه للاذاعه \n"
 end
 
 if MsgText[1] == "اذاعه عام" or MsgText[1] == "اذاعه عام " then		
-if not msg.SudoUser then return"• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 if not msg.SudoBase and not redis:get(amrko..'lock_brod') then 
 return "• الاذاعه مقفوله من قبل Dev  " 
 end
@@ -3086,7 +3086,7 @@ return "• حسناً الان ارسل الكليشه للاذاعه عام \n
 end
 
 if MsgText[1] == "اذاعه خاص" or MsgText[1] == "اذاعه خاص " then		
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 if not msg.SudoBase and not redis:get(amrko..'lock_brod') then 
 return "• الاذاعه مقفوله من قبل Dev  " 
 end
@@ -3095,7 +3095,7 @@ return "• حسناً الان ارسل الكليشه للاذاعه خاص \n
 end
 
 if MsgText[1] == "اذاعه" or MsgText[1] == "اذاعه " then		
-if not msg.SudoUser then return"• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 if not msg.SudoBase and not redis:get(amrko..'lock_brod') then 
 return "• الاذاعه مقفوله من قبل Dev  " 
 end
@@ -3104,17 +3104,17 @@ return "• حسناً الان ارسل الكليشه للاذاعه للمج�
 end
 
 if MsgText[1] == "قائمه M" or MsgText[1] == "قائمه M " then
-if not msg.SudoBase then return"• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoBase then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 return sudolist(msg) 
 end
 
 if MsgText[1] == "قائمه MY" or MsgText[1] == "قائمه MY " then
-if not msg.SudoBase then return"• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoBase then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 return suddolist(msg) 
 end
 
 if MsgText[1] == "قائمه العام" or MsgText[1]=="قائمه العام " then 
-if not msg.SudoUser then return"• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 return GetListGeneralBanned(msg) 
 end
 
@@ -3537,7 +3537,7 @@ end
 ----=================================|كود الرد المتعدد العام|===============================================
 
 if MsgText[1]=="اضف رد متعدد عام" or MsgText[1] == "اضف رد متعدد عام " then
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 redis:setex(amrko..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:del(amrko..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_)
 return "• حسناً ,  الان ارسل كلمه الرد للمتعدد العام \n-"
@@ -3545,13 +3545,13 @@ end
 
 
 if MsgText[1]== "مسح رد متعدد عام" then
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 redis:setex(amrko..':DelrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_,300,true)
 return "• حسناً عزيزي  \n• الان ارسل الرد المتعدد العام لمسحها "
 end
 
 if MsgText[1] == "مسح الردود المتعدده العامه" then
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 local AlRdod = redis:smembers(amrko..':KlmatRRandom:') 
 if #AlRdod == 0 then return "• الردود المتعدده محذوفه بالفعل\n" end
 for k,v in pairs(AlRdod) do redis:del(amrko..":ReplayRandom:"..v) redis:del(amrko..':caption_replay:Random:'..v)  end
@@ -3560,7 +3560,7 @@ return "• أهلا عزيزي "..msg.TheRankCmd.."  \n• تم مسح جميع
 end
 
 if MsgText[1] == "الردود المتعدده العام" or MsgText[1] == "الردود المتعدده العام " then
-if not msg.SudoUser then return "• هذا الامر يخص 〚 المطور 〛 فقط  \n" end
+if not msg.SudoUser then return "• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 message = "| الردود المتعدده العام :\n\n"
 local AlRdod = redis:smembers(amrko..':KlmatRRandom:') 
 if #AlRdod == 0 then 
@@ -3585,7 +3585,7 @@ return "• حسناً , الان ارسل كلمه الرد \n-"
 end
 
 if MsgText[1] == "ضع اسم للبوت" or MsgText[1]== 'ضع اسم للبوت ©' then
-if not msg.SudoBase then return"• هذا الامر يخص 〚 Dev} فقط  \n" end
+if not msg.SudoBase then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 redis:setex(amrko..'namebot:witting'..msg.sender_user_id_,300,true)
 return"• حسناً عزيزي  \n• الان ارسل الاسم  للبوت "
 end
@@ -3897,10 +3897,23 @@ end
 
 if MsgText[1]== 'م4' then
 if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
-local text = {  "• اهلا بك عزيزي\n- اوامر التسليه :\n━━━━━━━━━━━━\n• رفع - تنزيل : سبشل \n• رفع - تنزيل : حبيبتي \n• رفع - تنزيل : غبي \n• رفع - تنزيل : لحجي \n• رفع - تنزيل : كلب \n• رفع - تنزيل : حمار \n• رفع - تنزيل : تاج راس التلي \n• رفع - تنزيل : تاج راسي \n• رفع بقلبي  : تنزيل من قلبي\n• طلاق  : زواج \n━━━━━━━━━━━━"
-local inline = {
-{{text = 'ɴᴀᴘᴏʟᴇᴏɴ .',url="https://t.me/SO_NAP"}},
-}
+local text = [[
+• اهلا بك عزيزي
+- اوامر التسليه :
+━━━━━━━━━━━━
+• رفع - تنزيل : سبشل 
+• رفع - تنزيل : حبيبتي 
+• رفع - تنزيل : غبي 
+• رفع - تنزيل : لحجي 
+• رفع - تنزيل : كلب 
+• رفع - تنزيل : حمار 
+• رفع - تنزيل : تاج راس التلي 
+• رفع - تنزيل : تاج راسي 
+• رفع بقلبي  : تنزيل من قلبي
+• طلاق  : زواج 
+━━━━━━━━━━━━
+[- ɴᴀᴘᴏʟᴇᴏɴ](https://t.me/SO_NAP)
+]]
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg
@@ -4585,7 +4598,7 @@ if msg.Director and redis:get(amrko..":Witting_changeamr2:"..msg.chat_id_..msg.s
 local checkAmr = false
 for k, amrko in pairs(Xamrko) do if msg.text:match(amrko) then checkAmr = true end end      
 if checkAmr then
-sendMsg(msg.chat_id_,msg.id_,"• حسناً عزيزي , لتغير امر 〚 * "..msg.text.." *} \n• ارسل الامر الجديد الان \n...")
+sendMsg(msg.chat_id_,msg.id_,"• حسناً عزيزي , لتغير امر 〚 * "..msg.text.." * 〛\n• ارسل الامر الجديد الان \n...")
 redis:setex(amrko..":firstAmrOld:"..msg.chat_id_..msg.sender_user_id_,900,msg.text)
 else
 sendMsg(msg.chat_id_,msg.id_,"• عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n")
@@ -4697,7 +4710,7 @@ end
 end
 
 if checkk ~=0 then
-tiires =  "• تم مسح الامر 〚 * "..msg.text.." *} من قائمه الاومر \n..."
+tiires =  "• تم مسح الامر 〚 * "..msg.text.." * 〛 من قائمه الاومر \n..."
 else
 tiires = "• هذا الامر ليس موجود ضمن الاوامر المضافه  \n"
 end
