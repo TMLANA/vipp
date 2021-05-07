@@ -420,18 +420,18 @@ end
 ----------------------{ End Api Token Bot }-----------------------------
 
 function UpdateSource(msg,edit)
-if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |ـــــــــ          |') end
-if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |ـــــــــــــــ         |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |انتظر 10          |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |20٪        |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/Run.lua','./inc/Run.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |ـــــــــــــــــــــ   |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |40٪       |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/locks.lua','./inc/locks.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |ـــــــــــــــــــــــــــ |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |انتظر    |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/Script.lua','./inc/Script.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |ــــــــــــــــــــــــــــــــــ|') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |انتظر  |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/functions.lua','./inc/functions.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'90% - |ـــــــــــــــــــــــــــــــــــــــــ |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'90% - |انتظر   |') end
 download_file('https://raw.githubusercontent.com/bandarr009/vipp/main/games.lua','./plugins/games.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |تم التحديث|\n\n*•* تم تحديث السورس الى اصدار *v'..redis:get(amrko..":VERSION")..'*\n*•* تم اعاده تشغيل السورس بنجاح') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |تم |\n\n*•* تم تحديث السورس الى اصدار *v'..redis:get(amrko..":VERSION")..'*\n*•* تم اعاده تشغيل السورس بنجاح') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")
 
