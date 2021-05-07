@@ -6627,17 +6627,17 @@ SendMention(msg.chat_id_,data.id_,msg.id_,"• اضغط على الايدي لي
 return false
 end)
 --=====================================
-elseif Text== "انجب" or Text== "نجب" or Text=="جب" then
+elseif Text== "اسكت" or Text== "اخرس" or Text=="اسكت." then
 if msg.SudoUser then  
-return sendMsg(msg.chat_id_,msg.id_,"حاضر مو تدلل حضره المطور  😇 ")
+return sendMsg(msg.chat_id_,msg.id_,"من عنيا ")
 elseif msg.Creator then 
-return sendMsg(msg.chat_id_,msg.id_,"ع راسي تدلل انته المنشئ تاج راسي 😌")
+return sendMsg(msg.chat_id_,msg.id_,"توكل بس")
 elseif msg.Director then 
-return sendMsg(msg.chat_id_,msg.id_,"لخاطرك راح اسكت لان مدير وع راسي  😌")
+return sendMsg(msg.chat_id_,msg.id_,"واذا م سكت؟")
 elseif msg.Admin then 
-return sendMsg(msg.chat_id_,msg.id_,"فوك مامصعدك ادمن ؟؟ انته انجب 😏")
+return sendMsg(msg.chat_id_,msg.id_,"شيلوه تكفون")
 else 
-return sendMsg(msg.chat_id_,msg.id_,"انجب انته لاتندفر 😏")
+return sendMsg(msg.chat_id_,msg.id_,"احترام شوي")
 end 
 end 
 
