@@ -3946,14 +3946,13 @@ end
 
 end 
 
-if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
-local text = " مرحبا بك في سورس نابليون"
-local inline = {
-{{text = 'ɴᴀᴘᴏʟᴇᴏɴ .',url="https://t.me/SO_NAP"}},
-{{text = 'ɢʀᴏᴜᴘ .',url="https://t.me/PSSS8"}},
-{{text = 'ᴀᴄᴇ🎖.',url="https://t.me/URRRP"}},
-}   
-return send_inline(msg.chat_id_,text,inline,msg.id_)
+if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
+return [[
+𝚂𝚘𝚞𝚛𝚌𝚎 𝚁𝚘𝚣 :
+———————
+𝐷𝑒𝑣 : [𝚂𝚞𝚐𝚊𝚛 𝙳𝚊𝚍𝚍𝚢](t.me/PCCC4)
+𝐶ℎ𝑎 : [𝚁𝚘𝚣 𝚄𝚙𝚍𝚊𝚝𝚎𝚜](t.me/NTNN2)
+]]
 end
 
 if MsgText[1] == "رابط الحذف" or MsgText[1]== "ابي رابط حذف" or MsgText[1]== "اعطوني رابط الحذف" or MsgText[1]== "اعطوه رابط الحذف" or MsgText[1]== "رابط حذف" then
