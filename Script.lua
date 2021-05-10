@@ -2179,17 +2179,6 @@ sendMsg(msg.chat_id_,msg.id_,'• تم تعطيل امر مين ضافني')
 end
 end
 
-if msg.Director then
-if MsgText[1] == 'تفعيل كشف الاسم' then 
-redis:del(amrko..":asm:Me:"..msg.chat_id_)  
-sendMsg(msg.chat_id_,msg.id_,'• تم تفعيل امر كشف الاسم الحين اكشفهم')
-end
-if MsgText[1] == 'تعطيل كشف الاسم' then  
-redis:set(amrko..":asm:Me:"..msg.chat_id_,true)    
-sendMsg(msg.chat_id_,msg.id_,'• تم تعطيل كشف الاسم')
-end
-end
-
 if MsgText[1] == "تفعيل الردود المتعدده" 	then return unlock_replayRn(msg) end
 if MsgText[1] == "تفعيل الردود" 	then return unlock_replay(msg) end
 if MsgText[1] == "تفعيل الايدي" 	then return unlock_ID(msg) end
@@ -2204,6 +2193,7 @@ if MsgText[1] == "تفعيل المنشن" 	then return unlock_takkl(msg) end
 if MsgText[1] == "تفعيل التحقق" 		then return unlock_check(msg) end 
 if MsgText[1] == "تفعيل التنظيف التلقائي" 		then return unlock_cleaner(msg) end 
 if MsgText[1] == "تفعيل ردود السورس" 		then return unlock_rdodSource(msg) end 
+if MsgText[1] == "تفعيل كشف الاسم" 		then return unlock_asm(msg) end 
 
 
 if MsgText[1] == "تعطيل الردود المتعدده" 	then return lock_replayRn(msg) end
@@ -2219,7 +2209,8 @@ if MsgText[1] == "تعطيل الرابط" 	then return lock_linkk(msg) end
 if MsgText[1] == "تعطيل المنشن" 	then return lock_takkl(msg) end 
 if MsgText[1] == "تعطيل التحقق" 		then return lock_check(msg) end 
 if MsgText[1] == "تعطيل التنظيف التلقائي" 		then return lock_cleaner(msg) end 
-if MsgText[1] == "تعطيل ردود السورس" 		then return lock_rdodSource(msg) end 
+if MsgText[1] == "تعطيل ردود السورس" 		then return lock_rdodSource(msg) end
+if MsgText[1] == "تعطيل كشف الاسم" 		then return lock_asm(msg) end 
 
 
 if MsgText[1] == "ضع الترحيب" then 
@@ -3808,30 +3799,6 @@ end
 end,nil)
 else
 sendMsg(msg.chat_id_,msg.id_,'*• امر مين ضافني تم تعطيله من قبل المدراء *') 
-end
-end
-
-if not redis:get(amrko..":asm:Me:"..msg.chat_id_) then
-if msg.text then  
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_}, function(arg,data) 
-if redis:get(amrko.."chencher"..msg.sender_user_id_) then 
-if redis:get(amrko.."chencher"..msg.sender_user_id_) ~= data.first_name_ then 
-tahan = '['..(redis:get(amrko.."chencher"..msg.sender_user_id_) or '')..']'
-taham = '['..data.first_name_..']'
-local taha ={ 
-'اشوفك مغير اسمك يحلو '..tahan..' رجعه رجعه',
-'تحسب م عرفتك ي '.. taham..' اسمك القديم '..tahan..' افخم صدقني ',
-'هـلا بال '..taham..' خليك ع اسمك القديم '..tahan..' قديمك نديمك ',
-'يا '..taham..' ليش غيرت اسمك ترا قفطتك (:',
-'مب كأني شايفك من قبل بأسم   '..tahan..'  ليش غيرته ',
-'ي '..taham..' ليه غيرت اسمك تهاوشت مع احد ؟!'
-}
-
-sendMsg(msg.chat_id_,msg.id_,taha[math.random(#taha)])
-end  
-end
-redis:set(amrko.."chencher"..msg.sender_user_id_, data.first_name_) 
-end,nil) 
 end
 end
 
@@ -6625,6 +6592,30 @@ end
 
 
 ------------------------------{ End Replay Send }------------------------
+
+
+if msg.text and redis:get(amrko.."lock_rdodSource"..msg.chat_id_) then  
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_}, function(arg,data) 
+if redis:get(amrko.."chencher"..msg.sender_user_id_) then 
+if redis:get(amrko.."chencher"..msg.sender_user_id_) ~= data.first_name_ then 
+tahan = '['..(redis:get(amrko.."chencher"..msg.sender_user_id_) or '')..']'
+taham = '['..data.first_name_..']'
+local taha ={ 
+'اشوفك مغير اسمك يحلو '..tahan..' رجعه رجعه',
+'تحسب م عرفتك ي '.. taham..' اسمك القديم '..tahan..' افخم صدقني ',
+'هـلا بال '..taham..' خليك ع اسمك القديم '..tahan..' قديمك نديمك ',
+'يا '..taham..' ليش غيرت اسمك ترا قفطتك (:',
+'مب كأني شايفك من قبل بأسم   '..tahan..'  ليش غيرته ',
+'ي '..taham..' ليه غيرت اسمك تهاوشت مع احد ؟!'
+}
+
+sendMsg(msg.chat_id_,msg.id_,taha[math.random(#taha)])
+end  
+end
+redis:set(amrko.."chencher"..msg.sender_user_id_, data.first_name_) 
+end,nil) 
+end
+end
 
 ------------------------------{ Start Checking CheckExpire }------------------------
 
