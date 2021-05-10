@@ -3811,8 +3811,8 @@ sendMsg(msg.chat_id_,msg.id_,'*• امر مين ضافني تم تعطيله م
 end
 end
 
-if msg.text then  
 if not redis:get(amrko..":asm:Me:"..msg.chat_id_) then
+if msg.text then  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_}, function(arg,data) 
 if redis:get(amrko.."chencher"..msg.sender_user_id_) then 
 if redis:get(amrko.."chencher"..msg.sender_user_id_) ~= data.first_name_ then 
