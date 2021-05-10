@@ -6594,7 +6594,7 @@ end
 ------------------------------{ End Replay Send }------------------------
 
 
-if msg.text and redis:get(amrko.."lock_rdodSource"..msg.chat_id_) then  
+if msg.text and redis:get(amrko.."lock_asm"..msg.chat_id_) then  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_}, function(arg,data) 
 if redis:get(amrko.."chencher"..msg.sender_user_id_) then 
 if redis:get(amrko.."chencher"..msg.sender_user_id_) ~= data.first_name_ then 
