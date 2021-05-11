@@ -1454,7 +1454,7 @@ local GroupName = redis:get(amrko..'group:name'..msg.chat_id_)
 local GroupLink = redis:get(amrko..'linkGroup'..msg.chat_id_)
 local LinkG = "["..GroupName.."]("..GroupLink..")"
 return
-sendMsgg(msg.chat_id_,msg.id_,LinkG)
+sendMsg(msg.chat_id_,msg.id_,LinkG)
 end
 
 if MsgText[1] == "ضع القوانين" then
