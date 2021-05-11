@@ -1447,7 +1447,7 @@ end
 return false
 end 
 
-if MsgText[1] == "الرابط" then
+if (MsgText[1] == "الرابط") then
 if not redis:get(amrko.."lock_linkk"..msg.chat_id_) then return "• الامر معطل من قبل الادارة \n^"  end
 if not redis:get(amrko..'linkGroup'..msg.chat_id_) then return "• لا يوجد رابط \n•لانشاء رابط ارسل 〚  انشاء رابط  〛 \n" end
 local GroupName = redis:get(amrko..'group:name'..msg.chat_id_)
