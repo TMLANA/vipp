@@ -4020,10 +4020,10 @@ end
 tdcli_function({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tosticker, nil)
 end
 
-if Text == 'tophoto' or Text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
-function tophoto(kara,max)   
-if max.content_.ID == "MessageSticker" then        
-local bd = max.content_.sticker_.sticker_.path_          
+if MsgText[1] == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
+function tophoto(kara,boss)   
+if data.content_.ID == "MessageSticker" then        
+local bd = boss.content_.sticker_.sticker_.path_          
 sendPhoto(msg.chat_id_,msg.id_,bd,'')
 else
 sendMsg(msg.chat_id_,msg.id_,'• عزيزي المستخدم\n• الامر فقط للملصق\n')
@@ -7172,6 +7172,7 @@ Boss = {
  "^(اسمي)$",
  "^(صورتي)$",
  "^(افتاري)$",
+ "^(صوره)$",
 },
 iBoss = iBoss,
 dBoss = dBoss,
