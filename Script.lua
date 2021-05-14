@@ -3984,6 +3984,21 @@ if MsgText[1] == "التاريخ" then
 return "\n• التاريخ : "..os.date("%Y/%m/%d")
 end
 
+if MsgText[1] == "صورتي" or MsgText[1] == 'افتاري' then
+local my_ph = redis:get(boss..'my_photo:status:bot'..msg.chat_id_)
+print(my_ph)
+if not my_ph then
+local function getpro(extra, result, success)
+if result.photos_[0] then
+sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,'')
+else
+send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
+end 
+end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
+end
+end
+
 if MsgText[1] == "تفعيل الاشتراك الاجباري" then
 if not msg.SudoBase then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 if redis:get(boss..":UserNameChaneel") then
@@ -7121,6 +7136,8 @@ Boss = {
 "^(تعطيل ضافني)$",
 "^(مين ضافني)$",
  "^(اسمي)$",
+ "^(صورتي)$",
+ "^(افتاري)$",
 },
 iBoss = iBoss,
 dBoss = dBoss,
