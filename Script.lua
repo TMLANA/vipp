@@ -3999,6 +3999,40 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 end
 
+print('TIMESSSS')
+sendDocument(msg.chat_id_,msg.id_,file,'',dl_cb,nil)
+end
+if Text:match('^tosticker$') or Text:match('^تحويل ملصق$') and tonumber(msg.reply_to_message_id_) > 0 then
+whoami()
+BD = '/home/root/.telegram-cli/data/'
+function tosticker(arg,data)
+if data.content_.ID == 'MessagePhoto' then
+if BD..'photo/'..data.content_.photo_.id_..'_(1).jpg' == '' then
+pathf = BD..'photo/'..data.content_.photo_.id_..'.jpg'
+else
+pathf = BD..'photo/'..data.content_.photo_.id_..'_(1).jpg'
+end
+sendSticker(msg.chat_id_,msg.id_,pathf,'')
+else
+sendMsg(msg.chat_id_,msg.id_,'• عزيزي المستخدم\n• الامر فقط للصوره\n')
+end
+end
+tdcli_function({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tosticker, nil)
+end
+
+if Text == 'tophoto' or Text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
+function tophoto(kara,max)   
+if max.content_.ID == "MessageSticker" then        
+local bd = max.content_.sticker_.sticker_.path_          
+sendPhoto(msg.chat_id_,msg.id_,bd,'')
+else
+sendMsg(msg.chat_id_,msg.id_,'• عزيزي المستخدم\n• الامر فقط للملصق\n')
+end
+end
+tdcli_function({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tophoto, nil)
+end
+end
+
 if MsgText[1] == "تفعيل الاشتراك الاجباري" then
 if not msg.SudoBase then return"• هذا الامر يخص 〚 Dev 〛 فقط  \n" end
 if redis:get(boss..":UserNameChaneel") then
