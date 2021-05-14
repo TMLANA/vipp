@@ -1447,12 +1447,17 @@ end
 return false
 end 
 
-if MsgText[1] == "الرابط" then
-if not redis:get(boss.."lock_linkk"..msg.chat_id_) then return "• الامر معطل من قبل الادارة \n^"  end
-if not redis:get(boss..'linkGroup'..msg.chat_id_) then return "• لا يوجد رابط \n•لانشاء رابط ارسل 〚  انشاء رابط  〛 \n" end
-local GroupName = redis:get(boss..'group:name'..msg.chat_id_)
-local GroupLink = redis:get(boss..'linkGroup'..msg.chat_id_)
-return "🔖╿رابـط الـمـجـمـوعه 💯\n🌿╽"..Flter_Markdown(GroupName).." :\n\n["..GroupLink.."]\n"
+if (MsgText[1] == "الرابط") then
+if not redis:get(amrko.."lock_linkk"..msg.chat_id_) then 
+return "• الامر معطل من قبل الادارة \n^"  end
+if not redis:get(amrko..'linkGroup'..msg.chat_id_) then 
+return "• لا يوجد رابط \n•لانشاء رابط ارسل 〚  انشاء رابط  〛 \n" 
+end
+local GroupName = redis:get(amrko..'group:name'..msg.chat_id_)
+local GroupLink = redis:get(amrko..'linkGroup'..msg.chat_id_)
+local LinkG = "["..GroupName.."]("..GroupLink..")"
+return
+sendMsg(msg.chat_id_,msg.id_,LinkG)
 end
 
 if MsgText[1] == "ضع القوانين" then
@@ -2632,49 +2637,49 @@ end
 
 
 if MsgText[1] == "قائمه الاوامر" then
-if not msg.Director then return "📪¦ هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
 local list = redis:hgetall(boss..":AwamerBotArray2:"..msg.chat_id_)
 local list2 = redis:hgetall(boss..":AwamerBotArray:"..msg.chat_id_)
-message = "📋¦ الاوامر الجديد : \n\n" i = 0
-for name,Course in pairs(list) do i = i + 1 message = message ..i..' - *{* '..name..' *}* ~> '..Course..' \n'  end 
-if i == 0 then return "📛*¦* لا توجد اوامر مضافه في القائمه \n " end
+message = "• الاوامر الجديد : \n\n" i = 0
+for name,Course in pairs(list) do i = i + 1 message = message ..i..' - *〚 * '..name..' * 〛* ~> '..Course..' \n'  end 
+if i == 0 then return "• لا توجد اوامر مضافه في القائمه \n " end
 return message
 end
 
 
 if MsgText[1] == "مسح الاوامر" then
-if not msg.Director then return "📪¦ هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
 local Awammer 	= redis:del(boss..":AwamerBot:"..msg.chat_id_)
 redis:del(boss..":AwamerBotArray:"..msg.chat_id_)
 redis:del(boss..":AwamerBotArray2:"..msg.chat_id_)
 if Awammer ~= 0 then
-return "📭¦ تم مسح قائمه الاوامر \n..."
+return "• تم مسح قائمه الاوامر \n..."
 else
-return "📛*¦* القائمه بالفعل ممسوحه \n"
+return "• القائمه بالفعل ممسوحه \n"
 end
 end
 
 
 if MsgText[1] == "تعيين امر" or MsgText[1] == "تعين امر" or MsgText[1] == "اضف امر" then
-if not msg.Director then return "📪¦ هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
 if MsgText[2] then
 
 local checkAmr = false
 for k, Boss in pairs(XBoss) do if MsgText[2]:match(Boss) then  checkAmr = true end end      
 if checkAmr then
 redis:setex(Boss..":Witting_changeamr:"..msg.chat_id_..msg.sender_user_id_,300,MsgText[2])
-return "📭¦ حسننا عزيزي , لتغير امر {* "..MsgText[2].." *}  ارسل الامر الجديد الان \n..."
+return "• حسناً عزيزي , لتغير امر 〚 * "..MsgText[2].." * 〛  ارسل الامر الجديد الان \n..."
 else
-return "📛*¦* عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n"
+return "• عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n"
 end
 else
 redis:setex(boss..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_,300,true)
-return "📭¦ حسننا عزيزي , لتغير امر  ارسل الامر القديم الان \n..."
+return "• حسناً عزيزي , لتغير امر  ارسل الامر القديم الان \n..."
 end
 end
 
 if MsgText[1] == "مسح امر"  then
-if not msg.Director then return "📪¦ هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
 if MsgText[2] then
 local checkk = redis:hdel(boss..":AwamerBotArray2:"..msg.chat_id_,MsgText[2])
 local AmrOld = redis:hgetall(boss..":AwamerBotArray:"..msg.chat_id_)
@@ -2703,13 +2708,13 @@ redis:hdel(boss..":AwamerBotArray:"..msg.chat_id_,Amor)
 end
 end
 if checkk ~=0 then
-return "📭¦ تم مسح الامر {* "..MsgText[2].." *} من قائمه الاومر \n..."
+return "• تم مسح الامر 〚 * "..MsgText[2].." * 〛 من قائمه الاومر \n..."
 else
-return "📪¦ هذا الامر ليس موجود ضمن الاوامر المضافه  \n"
+return "• هذا الامر ليس موجود ضمن الاوامر المضافه  \n"
 end
 else
 redis:setex(boss..":Witting_AmrDel:"..msg.chat_id_..msg.sender_user_id_,300,true)
-return "📭¦  ارسل الامر الجديد المضاف بالقوائم الان\n..."
+return "•  ارسل الامر الجديد المضاف بالقوائم الان\n..."
 end
 
 
@@ -4560,7 +4565,7 @@ checknewamr = true
 end 
 end
 if checknewamr  then
-sendMsg(msg.chat_id_,msg.id_,"📛*¦* عذرا لايمكن اضافه امر مكرر في القائمه \n...")
+sendMsg(msg.chat_id_,msg.id_,"• عذرا لايمكن اضافه امر مكرر في القائمه \n...")
 else
 for k, Boss in pairs(XBoss) do 
 local cceck,sec = Boss:gsub("[(]"..Amr.."[)]","("..msg.text..")")
@@ -4571,7 +4576,7 @@ redis:hset(boss..":AwamerBotArray2:"..msg.chat_id_,msg.text,Amr)
 end
 end  
 redis:hset(boss..":AwamerBot:"..msg.chat_id_,msg.text,Amr)
-sendMsg(msg.chat_id_,msg.id_,"📑¦ تم تغيير الامر القديم ["..Amr.."] \n🔖¦ الى الامر الجديد ["..msg.text.."]\n...")
+sendMsg(msg.chat_id_,msg.id_,"• تم تغيير الامر القديم ["..Amr.."] \n• الى الامر الجديد ["..msg.text.."]\n...")
 end
 redis:del(boss..":Witting_changeamr:"..msg.chat_id_..msg.sender_user_id_)
 return false
@@ -4585,7 +4590,7 @@ local checknewamr = false
 
 for name,Course in pairs(Awammer) do if name == msg.text then checknewamr = true end end 
 if checknewamr  then
-sendMsg(msg.chat_id_,msg.id_,"📛*¦* عذرا لايمكن اضافه امر مكرر في القائمه \n...")
+sendMsg(msg.chat_id_,msg.id_,"• عذرا لايمكن اضافه امر مكرر في القائمه \n...")
 else
 for k, Boss in pairs(XBoss) do 
 local cceck,sec = Boss:gsub("[(]"..Amr.."[)]","("..msg.text..")")
@@ -4595,7 +4600,7 @@ redis:hset(boss..":AwamerBotArray2:"..msg.chat_id_,msg.text,Amr)
 end
 end 
 redis:hset(boss..":AwamerBot:"..msg.chat_id_,msg.text,Amr)
-sendMsg(msg.chat_id_,msg.id_,"📑¦ تم تغيير الامر القديم ["..Amr.."] \n🔖¦ الى الامر الجديد ["..msg.text.."]\n...")
+sendMsg(msg.chat_id_,msg.id_,"• تم تغيير الامر القديم ["..Amr.."] \n• الى الامر الجديد ["..msg.text.."]\n...")
 end
 redis:del(boss..":firstAmrOld:"..msg.chat_id_..msg.sender_user_id_)
 return false
@@ -4605,10 +4610,10 @@ if msg.Director and redis:get(boss..":Witting_changeamr2:"..msg.chat_id_..msg.se
 local checkAmr = false
 for k, Boss in pairs(XBoss) do if msg.text:match(Boss) then checkAmr = true end end      
 if checkAmr then
-sendMsg(msg.chat_id_,msg.id_,"📭¦ حسننا عزيزي , لتغير امر {* "..msg.text.." *} \n¦ ارسل الامر الجديد الان \n...")
+sendMsg(msg.chat_id_,msg.id_,"• حسناً عزيزي , لتغير امر 〚 * "..msg.text.." * 〛\n• ارسل الامر الجديد الان \n...")
 redis:setex(boss..":firstAmrOld:"..msg.chat_id_..msg.sender_user_id_,900,msg.text)
 else
-sendMsg(msg.chat_id_,msg.id_,"📛*¦* عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n")
+sendMsg(msg.chat_id_,msg.id_,"• عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n")
 end
 redis:del(boss..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_)
 return false
