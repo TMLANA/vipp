@@ -1447,18 +1447,14 @@ end
 return false
 end 
 
-if (MsgText[1] == "الرابط") then
-if not redis:get(boss.."lock_linkk"..msg.chat_id_) then 
-return "• الامر معطل من قبل الادارة \n^"  end
-if not redis:get(boss..'linkGroup'..msg.chat_id_) then 
-return "• لا يوجد رابط \n•لانشاء رابط ارسل 〚  انشاء رابط  〛 \n" 
+if MsgText[1] == "الرابط" then
+if not redis:get(boss.."lock_linkk"..msg.chat_id_) then return "📡*¦* الامر معطل من قبل الادارة \n^"  end
+if not redis:get(boss..'linkGroup'..msg.chat_id_) then return "📡*¦* اوه 🙀 لا يوجد رابط ☹️\n🔖*¦*لانشاء رابط ارسل { انشاء رابط } \n📡" end
+local GroupName = redis:get(boss..'group:name'..msg.chat_id_)
+local GroupLink = redis:get(boss..'linkGroup'..msg.chat_id_)
+return "["..GroupName.."]["..GroupLink.."]\n"
 end
-local GroupName = redis:get(amrko..'group:name'..msg.chat_id_)
-local GroupLink = redis:get(amrko..'linkGroup'..msg.chat_id_)
-local LinkG = "["..GroupName.."]("..GroupLink..")"
-return 
-sendMsg(msg.chat_id_,msg.id_,LinkG)
-end
+
 
 if MsgText[1] == "ضع القوانين" then
 if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
