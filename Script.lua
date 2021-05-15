@@ -825,34 +825,19 @@ end
 return false
 end
 
-if MsgText[1] == "كشف" then
+if MsgText[1] == "كشف"  then
 if not MsgText[2] and msg.reply_id then 
-GetMsgInfo(msg.chat_id_,msg.reply_id,function(arg,data)
-if not data.sender_user_id_ then return sendMsg(arg.ChatID,arg.MsgID,"• عذرا هذا العضو ليس موجود ضمن المجموعات \n") end
-local UserID = data.sender_user_id_
-GetUserID(UserID,function(arg,data)
-USERNAME = ResolveUserName(data)
-USERCAR = utf8.len(USERNAME)
-local namei = data.first_name_..' '..(data.last_name_ or "")
-if data.username_ then useri = '@'..data.username_ else useri = " لا يوجد " end
-SendMention(arg.ChatID,arg.UserID,arg.MsgID,'• الاسم » '..namei..'\n'
-..'• الايدي » 〚 '..arg.UserID..' 〛 \n'
-..'• المعرف » '..useri..'\n'
-..'• الرتبه » '..Getrtba(arg.UserID,arg.ChatID)..'\n'
-..'• نوع الكشف » بالرد\n',13,utf8.len(namei))
-end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
-end,{ChatID=msg.chat_id_,MsgID=msg.id_})
-elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
-GetUserName(MsgText[2],function(arg,data)
-if not data.id_ then return sendMsg(arg.ChatID,arg.MsgID,"• لا يوجد عضو بهذا المعرف \n") end 
-local UserID = data.id_
-UserName = Flter_Markdown(arg.UserName)
-sendMsg(arg.ChatID,arg.MsgID,'• الاسم » '..FlterName(data.title_,30)..'\n'..'• الايدي » 〚 `'..UserID..'` 〛 \n'..'• المعرف » '..UserName..'\n• الرتبه » '..Getrtba(UserID,arg.ChatID)..'\n?️• نوع الكشف » بالمعرف\n'..'')
-end,{ChatID=msg.chat_id_,MsgID=msg.id_,UserName=MsgText[2]})
-elseif MsgText[2] and MsgText[2]:match('^%d+$') then
-GetUserID(MsgText[2],action_by_id,{msg=msg,cmd="whois"}) 
-end
+GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="whois"})
 return false
+end 
+if MsgText[2] and MsgText[2]:match('^%d+$') then
+GetUserID(MsgText[2],action_by_id,{msg=msg,cmd="whois"}) 
+return false
+end
+if MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
+GetUserName(MsgText[2],action_by_username,{msg=msg,cmd="whois"}) 
+return false
+end 
 end
 
 
@@ -6707,8 +6692,9 @@ Boss = {
 "^(التفاعل) (@[%a%d_]+)$",
 "^(التفاعل) (%d+)$",
 "^(ايدي) (@[%a%d_]+)$",
-"^(كشف) (%d+)$",
-"^(كشف) (@[%a%d_]+)$",
+  "^(كشف)$",
+  "^(كشف) (%d+)$",
+  "^(كشف) (@[%a%d_]+)$",
 '^(رفع مميز) (@[%a%d_]+)$',
 '^(رفع مميز) (%d+)$',
 '^(تنزيل الكل) (@[%a%d_]+)$',
@@ -6813,7 +6799,6 @@ Boss = {
 "^(التفاعل)$",
 "^([iI][dD])$",
 "^(ايدي)$",
-"^(كشف)$",
 '^(رفع مميز)$',
 '^(تنزيل مميز)$',
 '^(رفع ادمن)$',
