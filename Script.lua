@@ -1452,9 +1452,8 @@ if not redis:get(boss.."lock_linkk"..msg.chat_id_) then return "📡*¦* الا�
 if not redis:get(boss..'linkGroup'..msg.chat_id_) then return "📡*¦* اوه 🙀 لا يوجد رابط ☹️\n🔖*¦*لانشاء رابط ارسل { انشاء رابط } \n📡" end
 local GroupName = redis:get(boss..'group:name'..msg.chat_id_)
 local GroupLink = redis:get(boss..'linkGroup'..msg.chat_id_)
-return "["..GroupName.."]["..GroupLink.."]\n"
+return "["..GroupName.."]("..GroupLink..")\n"
 end
-
 
 if MsgText[1] == "ضع القوانين" then
 if not msg.Admin then return "• هذا الامر يخص 〚 الادمن,المدير,المنشئ,Myth 〛 فقط  \n" end
