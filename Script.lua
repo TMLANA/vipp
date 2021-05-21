@@ -5058,7 +5058,7 @@ end
 
 
 if msg.text and msg.type == "channel" then
-if msg.text:match("^"..Bot_Name.." غادر$") and (msg.SudoBase or msg.SudoUser) then
+if msg.text:match("^"..Bot_Name.." غادر$") and (msg.SudoBase) then
 sendMsg(msg.chat_id_,msg.id_,'!!!') 
 rem_data_group(msg.chat_id_)
 StatusLeft(msg.chat_id_,our_id)
